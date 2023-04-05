@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Employee Records{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="/update/{{user.id}}">
+        {% csrf_token %}
+        <div class="container">
+            <div class="col-12">
+                <h3>Update User</h3>
+            </div>
+            <div class="mb-3">
+                <label>ID :</label>
+                <input type="text" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ user.id }}" />
+            </div>
+            <div class="mb-3">
+                <label>Name:</label>
+                <input type="text" class="form-control" name="name" id="id_name" required maxlength="100" value="{{ user.name }}" />
+            </div>
+            <div class="mb-3">
+                <label>Email :</label>
+                <input type="email" class="form-control" name="email" id="id_email" required maxlength="254" value="{{ user.email }}" />
+            </div>
+            <div class="mb-3">
+                <label>Contact:</label>
+                <input type="text" class="form-control" name="contact" id="id_contact" required maxlength="15" value="{{ user.contact }}" />
+            </div>
+            <div class="mb-3">
+                <label>Password:</label>
+                <input type="text" class="form-control" name="password" id="id_password" required maxlength="15" value="{{ user.password }}" />
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Update</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}

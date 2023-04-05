@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}New Employee Records{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" action="/updatetestmark">
+        {% csrf_token %}
+        {% for question in questions %}
+        <div class="my-3">
+            <div class="badge rounded-pill bg-success mb-1">
+                {{ question.id }}
+            </div>
+          <p>{{ question.question }}</p>
+          <label>
+            <input type="radio" name="question{{ question.id }}" value="{{ question.answer_A }}">
+            {{ question.answer_A }}
+          </label>
+          <br />
+          <label>
+            <input type="radio" name="question{{ question.id }}" value="{{ question.answer_B }}">
+            {{ question.answer_B }}
+          </label>
+          <br />
+          <label>
+            <input type="radio" name="question{{ question.id }}" value="{{ question.answer_C }}">
+            {{ question.answer_C }}
+          </label>
+          <br />
+          <label>
+            <input type="radio" name="question{{ question.id }}" value="{{ question.answer_D }}">
+            {{ question.answer_D }}
+          </label>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+      
+</div>
+{% endblock content %}
