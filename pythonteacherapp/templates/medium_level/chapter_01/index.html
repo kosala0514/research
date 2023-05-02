@@ -93,14 +93,10 @@
     <script>
         // Get a reference to the button element
         var runBtn = document.getElementById("runBtn");
-
         // Add a click event listener to the button
         runBtn.addEventListener("click", executeCode);
-
         function executeCode() {
-            
             var csrftoken = getCookie('csrftoken');
-
             // Include the CSRF token in the Ajax request header
             $.ajaxSetup({
                 beforeSend: function(xhr, settings) {
@@ -109,7 +105,6 @@
                     }
                 }
             });
-
             // Send the Ajax request
             var code = editor.getSession().getValue();
             $.ajax({
