@@ -17,6 +17,7 @@ from django.conf import settings
 import ast
 import tempfile
 
+loging_user = {}
 
 def register(request):
     if request.method == 'POST':
@@ -39,6 +40,8 @@ def index(request):
             password = form.cleaned_data['password']
             try:
                 user = User.objects.get(email=email)
+                global loging_user
+                loging_user= user
                 if user.password == password:
                     request.session['name'] = user.name
                     request.session['email'] = user.email
@@ -47,11 +50,11 @@ def index(request):
                         questions = PreTest.objects.all()
                         return render(request, 'index.html', {'questions': questions})
                     elif user.test_marks < 40:
-                        return render(request, 'low_level/index.html')
+                        return render(request, 'low_level/index.html', {'user': user})
                     elif user.test_marks < 75:
-                        return render(request, 'medium_level/index.html')
+                        return render(request, 'medium_level/index.html', {'user': user})
                     else:
-                        return render(request, 'high_level/index.html')
+                        return render(request, 'high_level/index.html', {'user': user})
                 else:
                     form = LoginForm()
                     return render(request, 'login.html', {'error_message': 'Invalid login credentials.', 'form': form})
@@ -185,36 +188,37 @@ def execute_code(request):
 def assignment(request):
     number = request.GET.get('lesson')
     number = int(number) if number else None
+    global loging_user
     if number == 1:
-        content = render_to_string('medium_level/assignments/lesson_01/assignment_1.html', {'level':1})
-    # elif number == 2:
-    #     content = render_to_string('medium_level/lesson_02/index.html')
-    # elif number == 3:
-    #     content = render_to_string('medium_level/lesson_03/index.html')
-    # elif number == 4:
-    #     content = render_to_string('medium_level/lesson_04/index.html')
-    # elif number == 5:
-    #     content = render_to_string('medium_level/lesson_05/index.html')
-    # elif number == 6:
-    #     content = render_to_string('medium_level/lesson_06/index.html')
-    # elif number == 7:
-    #     content = render_to_string('medium_level/lesson_07/index.html')
-    # elif number == 8:
-    #     content = render_to_string('medium_level/lesson_08/index.html')
-    # elif number == 9:
-    #     content = render_to_string('medium_level/lesson_09/index.html')
-    # elif number == 10:
-    #     content = render_to_string('medium_level/lesson_10/index.html')
-    # elif number == 11:
-    #     content = render_to_string('medium_level/lesson_11/index.html')
-    # elif number == 12:
-    #     content = render_to_string('medium_level/lesson_12/index.html')
-    # elif number == 13:
-    #     content = render_to_string('medium_level/lesson_13/index.html')
-    # elif number == 14:
-    #     content = render_to_string('medium_level/lesson_14/index.html')
-    # elif number == None:
-    #     content = render_to_string('medium_level/welcome.html')
+        content = render_to_string('medium_level/assignments/lesson_01/assignment_1.html', {'level':loging_user.assignment_progress_level})
+    elif number == 2:
+        content = render_to_string('medium_level/assignments/lesson_02/assignment_2.html', {'level':loging_user.assignment_progress_level})
+    elif number == 3:
+        content = render_to_string('medium_level/assignments/lesson_03/assignment_3.html', {'level':loging_user.assignment_progress_level})
+    elif number == 4:
+        content = render_to_string('medium_level/assignments/lesson_04/assignment_4.html', {'level':loging_user.assignment_progress_level})
+    elif number == 5:
+        content = render_to_string('medium_level/assignments/lesson_05/assignment_5.html', {'level':loging_user.assignment_progress_level})
+    elif number == 6:
+        content = render_to_string('medium_level/assignments/lesson_06/assignment_6.html', {'level':loging_user.assignment_progress_level})
+    elif number == 7:
+        content = render_to_string('medium_level/assignments/lesson_07/assignment_7.html', {'level':loging_user.assignment_progress_level})
+    elif number == 8:
+        content = render_to_string('medium_level/assignments/lesson_08/assignment_8.html', {'level':loging_user.assignment_progress_level})
+    elif number == 9:
+        content = render_to_string('medium_level/assignments/lesson_09/assignment_9.html', {'level':loging_user.assignment_progress_level})
+    elif number == 10:
+        content = render_to_string('medium_level/assignments/lesson_10/assignment_10.html', {'level':loging_user.assignment_progress_level})
+    elif number == 11:
+        content = render_to_string('medium_level/assignments/lesson_11/assignment_11.html', {'level':loging_user.assignment_progress_level})
+    elif number == 12:
+        content = render_to_string('medium_level/assignments/lesson_12/assignment_12.html', {'level':loging_user.assignment_progress_level})
+    elif number == 13:
+        content = render_to_string('medium_level/assignments/lesson_13/assignment_13.html', {'level':loging_user.assignment_progress_level})
+    elif number == 14:
+        content = render_to_string('medium_level/assignments/lesson_14/assignment_14.html', {'level':loging_user.assignment_progress_level})
+    elif number == None:
+        content = render_to_string('medium_level/welcome.html')
     else:
         content = render_to_string('medium_level/welcome.html')
     
@@ -222,6 +226,7 @@ def assignment(request):
 
 @csrf_exempt
 def upload_file(request):
+    content = ''
     file_path = os.path.abspath('pythonteacherapp/templates/medium_level/assignments/lesson_01/1.py')
     if not os.path.exists(file_path):
         return HttpResponse(f"File {file_path} does not exist")
@@ -247,13 +252,13 @@ def upload_file(request):
                 similarity_ratio = SequenceMatcher(None, stored_file, uploaded_content).ratio()
                 result = round(result_similarity_ratio, 2)
                 code = round(similarity_ratio, 2)
-            if result == 2:
-                content = "Syntax Error - Check again the code !"
-            elif result != 1:
-                content = "Check again the code and make sure that all the keywords are included!"
-            else:
-                task = get_fuzzy_output(code, time)
-                content = f"Final result : {task}"
+                if result == 2:
+                    content = "Syntax Error - Check again the code !"
+                elif result != 1:
+                    content = "Check again the code and make sure that all the keywords are included!"
+                else:
+                    task = get_fuzzy_output(code, time)
+                    content = f"Final result : {task}"
             # content = f"File uploaded successfully. Similarity ratio: {result}"
         else:
             content = render_to_string('medium_level/welcome.html')
