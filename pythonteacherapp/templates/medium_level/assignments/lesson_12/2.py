@@ -1,4 +1,9 @@
-first_name = input("Enter your friend's first name: ")
-last_name = input("Enter your friend's last name: ")
-full_name = first_name + " " + last_name
-print(full_name)
+import random
+
+def generate_random_number(minimum, maximum):
+    return random.randint(minimum, maximum)
+
+minimum_value = 1
+maximum_value = 10
+random_number = generate_random_number(minimum_value, maximum_value)
+print(random_number)

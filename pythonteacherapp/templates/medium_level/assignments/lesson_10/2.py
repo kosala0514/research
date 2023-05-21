@@ -1,4 +1,8 @@
-first_name = input("Enter your friend's first name: ")
-last_name = input("Enter your friend's last name: ")
-full_name = first_name + " " + last_name
-print(full_name)
+celsius = float(input("Enter the temperature in Celsius: "))
+fahrenheit = (celsius * 9/5) + 32
+
+if fahrenheit < 32:
+    print("The temperature is below freezing.")
+else:
+    print("The temperature is above freezing.")
+

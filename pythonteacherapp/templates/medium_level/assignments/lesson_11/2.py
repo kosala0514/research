@@ -1,4 +1,7 @@
-first_name = input("Enter your friend's first name: ")
-last_name = input("Enter your friend's last name: ")
-full_name = first_name + " " + last_name
-print(full_name)
+numbers = [1, 2, 3, 4, 5]
+doubled_numbers = []
+
+for num in numbers:
+    doubled_numbers.append(num * 2)
+
+print(doubled_numbers)

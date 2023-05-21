@@ -1,4 +1,4 @@
-first_name = input("Enter your friend's first name: ")
-last_name = input("Enter your friend's last name: ")
-full_name = first_name + " " + last_name
-print(full_name)
+input_sentence = "This is a sample sentence. This sentence contains some repeated words."
+words = input_sentence.split()
+unique_words = set(words)
+print(unique_words)

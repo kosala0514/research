@@ -15,7 +15,7 @@
     </div>
     {% if level == 1 %}
     <h3>Scenario : </h3>
-    <p>Write a Python function called calculate that takes three arguments: a, b, and operation. The operation argument is a string that specifies which mathematical operation to perform on a and b. The function should return the result of the specified operation.</p>
+    <p>Write a Python code that takes three arguments: a, b, and operation. The operation argument is a string that specifies which mathematical operation to perform on a and b. The function should return the result of the specified operation.</p>
     <p>The possible values for operation are:</p>
     <ul>
         <li>"add": returns the sum of a and b.</li>
@@ -24,16 +24,10 @@
         <li>"divide": returns the result of dividing a by b.</li>
     </ul>
     <p>If operation is not one of these four strings, the function should return the string "Invalid operation".Also You can assume that a and b will always be numeric values, but you should handle division by zero by returning the string "Cannot divide by zero".</p>
+    <p>Don't use user input and use 5, 3 as initial number for the parameters.</p>
 
     <p class="text-danger">The output must be like this. (word must same as here)</p>
-    <!-- <div class="card bg-dark text-light">
-        <div class="p-3">
-            <p>Enter your friend's first name: Kosala</p>
-            <p>Enter your friend's last name: Jayaweera</p>
-            <p>Kosala Jayaweera</p>
-        </div>
-    </div> -->
-
+    
     <div>
         <div class="editor mt-2" id="editor"></div>
 
@@ -48,7 +42,14 @@
     {% if level == 2 %}
     <h3>Scenario : </h3>
     <p>Write a program that takes a list of numbers as input from the user, and replaces all even numbers in the list with the value 0.</p>
-        <p class="text-danger">The output must be like this. (word must same as here)</p>
+    <p class="text-danger">The output must be like this. (word must same as here)</p>
+    <div class="card bg-dark text-light">
+        <div class="p-3">
+            <p>Enter a list of numbers, separated by spaces: 1 2 3 4 5 6</p>
+            <br>            
+            <p>Updated list: [1, 0, 3, 0, 5, 0]</p>
+        </div>
+    </div>
     <div>
         <div class="editor mt-2" id="editor"></div>
 
@@ -63,6 +64,13 @@
     {% if level == 3 %}
     <h3>Scenario : </h3>
     <p>Write a program that takes a string as input from the user, and replaces all occurrences of the character 'a' with the character 'b'.</p>
+    <div class="card bg-dark text-light">
+        <div class="p-3">
+            <p>Enter a string: banana</p>
+            <br>            
+            <p>Output string: bbnbnb</p>
+        </div>
+    </div>
     <p class="text-danger">The output must be like this. (word must same as here)</p>
     <div>
         <div class="editor mt-2" id="editor"></div>
