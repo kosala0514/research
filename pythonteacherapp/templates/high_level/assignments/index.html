@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment - {% block title %}{% endblock %}</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <style>
+        .nav-link:focus, .nav-link:hover {
+            color: #f9f9f9 !important;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #3f4fda !important;
+            text-decoration: none;
+            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+        }
+
+        a:hover {
+            color: #69a6e2 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" >
+                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-5 d-none d-sm-inline">PythonTeacher</span>
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start min-vh-100" id="menu">
+                        <li>
+                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fa-solid fa-person-chalkboard"></i> <span class="ms-1 d-none d-sm-inline">Chapter</span> </a>
+                            <ul class="collapse nav flex-column ms-1 text-light ml-4" id="submenu1" data-bs-parent="#menu">
+                                <li class="w-100 ml-4">
+                                    <a href="{% url 'chapter' %}?lesson=1" class="nav-link px-0"> <span class="d-none d-sm-inline">Introduction</span></a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=2" class="nav-link px-0"> <span class="d-none d-sm-inline">Get Started</span> </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=3" class="nav-link px-0"> <span class="d-none d-sm-inline">Variable</span> </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=4" class="nav-link px-0"> <span class="d-none d-sm-inline">Data Types</span> </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=5" class="nav-link px-0"> <span class="d-none d-sm-inline">Operators</span> </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=6" class="nav-link px-0"> <span class="d-none d-sm-inline">List</span> </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=7" class="nav-link px-0"> <span class="d-none d-sm-inline">Tuple</span> </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=8" class="nav-link px-0"> <span class="d-none d-sm-inline">Sets</span> </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=9" class="nav-link px-0"> <span class="d-none d-sm-inline">Dictionaries</span> </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=10" class="nav-link px-0"> <span class="d-none d-sm-inline">If...Else</span> </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=11" class="nav-link px-0"> <span class="d-none d-sm-inline">Loop</span> </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=12" class="nav-link px-0"> <span class="d-none d-sm-inline">Functions</span> </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=13" class="nav-link px-0"> <span class="d-none d-sm-inline">Lambda</span> </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=14" class="nav-link px-0"> <span class="d-none d-sm-inline">Array</span> </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
+                        </li>
+                        <li>
+                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
+                                <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="dropdown pb-4">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1">loser</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><div class="col-md-9">
+                <div id="content">
+                  <h1>Welcome to PythonTeacher</h1>
+                </div>
+              </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#menu a').click(function(event) {
+        event.preventDefault();  // prevent the link from navigating to a different page
+        var url = $(this).attr('href');  // get the URL of the link
+        if (!url.startsWith('#')) {
+            $('#content').load(url);  // load the content from the URL into the content div
+        }  // load the content from the URL into the content div
+        });
+    });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/lib/ace.js' %}"></script>
+    <script src="{% static 'js/lib/theme-monokai.js' %} "></script>
+    <!-- <script src="{% static 'js/ide.js' %}"></script> -->
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - {% block title %}{% endblock %}</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <style>
+        .nav-link:focus, .nav-link:hover {
+            color: #f9f9f9 !important;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #3f4fda !important;
+            text-decoration: none;
+            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+        }
+
+        a:hover {
+            color: #69a6e2 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" >
+                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-5 d-none d-sm-inline">PythonTeacher</span>
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                        <li>
+                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fa-solid fa-person-chalkboard"></i> <span class="ms-1 d-none d-sm-inline">Chapter</span> </a>
+                            <ul class="collapse nav flex-column ms-1 text-light ml-4" id="submenu1" data-bs-parent="#menu">
+                                {% if user.chapter_level == 1 %}
+                                <li class="w-100 ml-4">
+                                    <a href="{% url 'chapter' %}?lesson=1" class="nav-link px-0"> <span class="d-none d-sm-inline">Introduction</span></a>
+                                </li>
+                                {% endif %}
+                                {% if user.chapter_level >= 2 %}
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=2" class="nav-link px-0"> <span class="d-none d-sm-inline">Get Started</span> </a>
+                                </li>
+                                {% endif %}
+                                {% if user.chapter_level >= 3 %}
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=3" class="nav-link px-0"> <span class="d-none d-sm-inline">Variable</span> </a>
+                                </li>
+                                {% endif %}
+                                {% if user.chapter_level >= 4 %}
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=4" class="nav-link px-0"> <span class="d-none d-sm-inline">Data Types</span> </a>
+                                </li>
+                                {% endif %}
+                                {% if user.chapter_level >= 5 %}
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=5" class="nav-link px-0"> <span class="d-none d-sm-inline">Operators</span> </a>
+                                </li>
+                                {% endif %}
+                                {% if user.chapter_level >= 6 %}
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=6" class="nav-link px-0"> <span class="d-none d-sm-inline">List</span> </a>
+                                </li>
+                                {% endif %}
+                                {% if user.chapter_level >= 7 %}
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=7" class="nav-link px-0"> <span class="d-none d-sm-inline">Tuple</span> </a>
+                                </li>
+                                {% endif %}
+                                {% if user.chapter_level >= 8 %}
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=8" class="nav-link px-0"> <span class="d-none d-sm-inline">Sets</span> </a>
+                                </li>
+                                {% endif %}
+                                {% if user.chapter_level >= 9 %}
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=9" class="nav-link px-0"> <span class="d-none d-sm-inline">Dictionaries</span> </a>
+                                </li>
+                                {% endif %}
+                                {% if user.chapter_level >= 10 %}
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=10" class="nav-link px-0"> <span class="d-none d-sm-inline">If...Else</span> </a>
+                                </li>
+                                {% endif %}
+                                {% if user.chapter_level >= 11 %}
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=11" class="nav-link px-0"> <span class="d-none d-sm-inline">Loop</span> </a>
+                                </li>
+                                {% endif %}
+                                {% if user.chapter_level >= 12 %}
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=12" class="nav-link px-0"> <span class="d-none d-sm-inline">Functions</span> </a>
+                                </li>
+                                {% endif %}
+                                {% if user.chapter_level >= 13 %}
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=13" class="nav-link px-0"> <span class="d-none d-sm-inline">Lambda</span> </a>
+                                </li>
+                                {% endif %}
+                                {% if user.chapter_level >= 14 %}
+                                <li>
+                                    <a href="{% url 'chapter' %}?lesson=14" class="nav-link px-0"> <span class="d-none d-sm-inline">Array</span> </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Assignment</span></a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">                                
+                                {% if user.assignment_level == 1 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=1" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 01</span></a>
+                                </li>
+                                {% endif %}                             
+                                {% if user.assignment_level >= 2 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=2" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 02</span></a>
+                                </li>
+                                {% endif %}                             
+                                {% if user.assignment_level >= 3 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=3" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 03</span></a>
+                                </li>
+                                {% endif %}                             
+                                {% if user.assignment_level >= 4 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=4" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 04</span></a>
+                                </li>
+                                {% endif %}                             
+                                {% if user.assignment_level >= 5 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=5" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 05</span></a>
+                                </li>
+                                {% endif %}                             
+                                {% if user.assignment_level >= 6 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=6" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 06</span></a>
+                                </li>
+                                {% endif %}                             
+                                {% if user.assignment_level >= 7 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=7" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 07</span></a>
+                                </li>
+                                {% endif %}                             
+                                {% if user.assignment_level >= 8 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=8" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 08</span></a>
+                                </li>
+                                {% endif %}                             
+                                {% if user.assignment_level >= 9 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=9" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 09</span></a>
+                                </li>
+                                {% endif %}                             
+                                {% if user.assignment_level >= 10 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=10" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 10</span></a>
+                                </li>
+                                {% endif %}                             
+                                {% if user.assignment_level >= 11 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=11" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 11</span></a>
+                                </li>
+                                {% endif %}                             
+                                {% if user.assignment_level >= 12 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=12" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 12</span></a>
+                                </li>
+                                {% endif %}                             
+                                {% if user.assignment_level >= 13 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=13" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 13</span></a>
+                                </li>
+                                {% endif %}                             
+                                {% if user.assignment_level >= 14 %}
+                                <li class="w-100">
+                                    <a href="{% url 'assignment' %}?lesson=14" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 14</span></a>
+                                </li>
+                                {% endif %}  
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- <hr color="#fff"> -->
+                    <!-- <div class="dropdown pb-4">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none" >
+                            <img src="pro.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1">{{ user.name }}</span>
+                        </a>
+                    </div> -->
+                </div>
+            </div><div class="col-md-9">
+                <div id="content">
+                  <h1>Welcome to PythonTeacher</h1>
+                </div>
+              </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#menu a').click(function(event) {
+        event.preventDefault();  // prevent the link from navigating to a different page
+        var url = $(this).attr('href');  // get the URL of the link
+        if (!url.startsWith('#')) {
+            $('#content').load(url);  // load the content from the URL into the content div
+        }  // load the content from the URL into the content div
+        });
+    });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/lib/ace.js' %}"></script>
+    <script src="{% static 'js/lib/theme-monokai.js' %} "></script>
+    <!-- <script src="{% static 'js/ide.js' %}"></script> -->
+</body>
+</html>

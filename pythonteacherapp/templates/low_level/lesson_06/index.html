@@ -1,0 +1,179 @@
+{% load static %}
+<div class="my-5 mx-5">
+    <h1 class="text-center">List</h1>
+    <p>One of the 4 built-in data type that can use to store multiple items in a single variable.</p>
+    <img src="{% static 'img/lesson_06/3.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>The list items are indexed and index start from [0]</p>
+    <p>We can change list items when ever we want and it can have items with same values.</p>
+    <img src="{% static 'img/lesson_06/2.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <br />
+    
+    <h3>Access List item</h3>
+    <p>We can access item in the list by referring index</p>
+    <img src="{% static 'img/lesson_06/1.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>We can access item from the end of the list by referring negative index.</p>
+    <img src="{% static 'img/lesson_06/4.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>We can access range of items by specifying start and end point of the range.</p>
+    <img src="{% static 'img/lesson_06/5.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    
+    <h3>Change list items</h3>
+    <p>We can change the item of the array by referring index.</p>
+    <img src="{% static 'img/lesson_06/7.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>We can change range of items by referring to the range of index</p>
+    <img src="{% static 'img/lesson_06/6.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    
+    <h3>Add Items to list</h3>
+    <p>We can use  append() method to add new item.</p>
+    <img src="{% static 'img/lesson_06/8.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>Also we can change add new item by insert() method.</p>
+    <img src="{% static 'img/lesson_06/9.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>To append elements from another list to the current list, use the extend() method.</p>
+    <img src="{% static 'img/lesson_06/10.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>The extend() method does not have to append lists, you can add any iterable object (tuples, sets, dictionaries etc.).</p>
+    
+    <h3>Remove item from the list</h3>
+    <p>The remove() method removes the specified item.</p>
+    <img src="{% static 'img/lesson_06/11.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>The pop() method removes the specified index.</p>
+    <img src="{% static 'img/lesson_06/12.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>The del keyword also removes the specified index:</p>
+    <img src="{% static 'img/lesson_06/13.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>The clear() method empties the list.</p>
+    <!-- <img src="{% static 'img/lesson_06/13.png' %}" class="img-fluid mt-3" alt="Responsive image"> -->
+    
+    <h3>loop through a list</h3>
+    <p>We can use for loop</p>
+    <img src="{% static 'img/lesson_06/14.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>We can use loop through the index number</p>
+    <img src="{% static 'img/lesson_06/15.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>Also we can use while loop</p>
+    <img src="{% static 'img/lesson_06/16.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>list comprehension</p>
+    <img src="{% static 'img/lesson_06/18.png' %}" class="img-fluid mt-3" alt="Responsive image">
+
+    <h3>Sort List</h3>
+    <p>Can sort list using sort() method ( case insensitive sort )</p>
+    <img src="{% static 'img/lesson_06/19.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>Sort in descending order</p>
+    <p>if we want to reverse the order, we can use reverse() method.</p>
+    <img src="{% static 'img/lesson_06/20.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    
+    <h3>Copy list</h3>
+    <p>We can use copy() method</p>
+    <img src="{% static 'img/lesson_06/21.png' %}" class="img-fluid mt-3" alt="Responsive image">
+
+    <h3>Join lists</h3>
+    <p>Using + operator</p>
+    <img src="{% static 'img/lesson_06/22.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>Using append() method</p>
+    <p>Using extend method</p>
+    <br/>
+    <div class="row mt-4 text-center">
+        <h1>Exercise</h1>
+        <p>Here is some examples that you can check out and improve your knowledge. (replit)</p>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body  text-center">
+                  <h5 class="card-title">Bird List</h5>
+                  <p class="card-text">Let's play with birds !</p>
+                  <a href="https://replit.com/join/rbkbsbmtzi-charunikosala"  target="_blank" class="btn btn-primary">Go</a>
+                </div>
+              </div>                  
+        </div>
+        <!-- <div class="col-md-4">
+            <div class="card">
+                <div class="card-body  text-center">
+                  <h5 class="card-title  ">MotivateMe</h5>
+                  <p class="card-text">When life gives you lemons, make lemonade!</p>
+                  <a href="https://replit.com/join/ynzpaxzrnt-charunikosala" target="_blank" class="btn btn-primary">Go</a>
+                </div>
+              </div>  
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body  text-center">
+                  <h5 class="card-title">Greeting</h5>
+                  <p class="card-text">How are you friends with someone found in the cafeteria?</p>
+                  <a href="https://replit.com/join/cmiafjbryb-charunikosala" target="_blank" class="btn btn-primary">Go</a>
+                </div>
+              </div>  
+        </div> -->
+    </div>
+    <br/>
+
+    <h1 class="mt-4 text-center">
+        Test
+    </h1>
+    <p>You can do exercise here to get some experience.</p>
+    <div class="editor mt-2" id="editor"></div>
+
+    <div class="my-1 text-center">
+        <button class="btn btn-warning btn-lg" id="runBtn">Run</button>
+    </div>
+
+    <div class="output"></div>
+    
+    <div class="row my-3 text-center">
+        <div class="col-md-12 text-end ">
+            <a href="{% url 'assignment' %}?lesson=1" class="btn btn-lg btn-danger">Assignment</a>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script>    
+        console.log("Ace editor script executing...");
+        if(document.getElementById('editor')) {
+            console.log("Initializing Ace editor...");
+            var editor = ace.edit("editor");
+            editor.setTheme("ace/theme/monokai");
+            editor.session.setMode("ace/mode/c_cpp");
+            editor.session.setMode("ace/mode/python");
+        }
+    </script>
+    <script>
+        // Get a reference to the button element
+        var runBtn = document.getElementById("runBtn");
+        // Add a click event listener to the button
+        runBtn.addEventListener("click", executeCode);
+        function executeCode() {
+            var csrftoken = getCookie('csrftoken');
+            // Include the CSRF token in the Ajax request header
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+            });
+            // Send the Ajax request
+            var code = editor.getSession().getValue();
+            $.ajax({
+                url: "{% url 'execute_code' %}",
+                method: "POST",
+                data: {
+                    code: code
+                },
+                success: function(response) {
+                    // Update the output element with the response
+                    $(".output").text(response);
+                }
+            });
+        }
+        // Get the CSRF token cookie value
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+    </script>

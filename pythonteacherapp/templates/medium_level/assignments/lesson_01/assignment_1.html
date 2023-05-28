@@ -208,7 +208,7 @@
         seconds -= minutes * 60;
         var remainingTime = hours * 3600 + minutes * 60 + seconds;
         var formData = new FormData(form);
-        console.log(remainingTime)
+        // console.log(remainingTime)
         formData.append("remaining_time", remainingTime);
         fetch('/upload_file', {
             method: 'POST',
@@ -216,7 +216,7 @@
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 // if (data.success) {
                 //   responseDiv.innerText = 'File uploaded successfully';
                 // } else {

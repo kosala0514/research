@@ -1,0 +1,155 @@
+{% load static %}
+<div class="my-5 mx-5">
+    <h1 class="text-center">Rules for Naming</h1>
+    <ul>
+        <li>The underscore character or a letter must come first in a variable name.</li>
+        <li>A number cannot come first in a variable name.</li>
+        <li> Only underscores (A-z, 0-9, and _) and alphanumeric characters are permitted in variable names.</li>
+        <li>Names of variables are case-sensitive (age, Age and AGE are three different variables).</li>
+        <li>Any Python keyword cannot be the name of a variable.</li>
+    </ul>
+    <img src="{% static 'img/lesson_03/10.png' %}" class="img-fluid" alt="Responsive image">
+    <br/>
+
+    <h1 class="text-center mt-3">Multi Words Variable Names</h1>
+    <h5 class="mt-3">Camel Case</h5>
+    <p>Example:-</p>
+    <img src="{% static 'img/lesson_03/7.png' %}" class="img-fluid" alt="Responsive image">
+    <h5 class="mt-3">Pascal Case</h5>
+    <p>Example:-</p>
+    <img src="{% static 'img/lesson_03/12.png' %}" class="img-fluid" alt="Responsive image">
+    <h5 class="mt-3">Snake Case</h5>
+    <p>Example:-</p>
+    <img src="{% static 'img/lesson_03/13.png' %}" class="img-fluid" alt="Responsive image">
+
+    <h1 class="text-center mt-3">Assign Multiple Values</h1>
+
+    <h5 class="mt-3">Many Values to Multiple Variables</h5>
+    <p>Example:-</p>
+    <img src="{% static 'img/lesson_03/14.png' %}" class="img-fluid" alt="Responsive image">
+    <h5 class="mt-3">One Value to Multiple Variables</h5>
+    <p>Example:-</p>
+    <img src="{% static 'img/lesson_03/15.png' %}" class="img-fluid" alt="Responsive image">
+    <h5 class="mt-3">Unpack a Collection</h5>
+    <p>Example:-</p>
+    <img src="{% static 'img/lesson_03/16.png' %}" class="img-fluid" alt="Responsive image">
+    <br />
+
+    <h1 class="text-center mt-3">Output Variables </h1>
+    <h5>Example:-</h5>
+    <img src="{% static 'img/lesson_03/17.png' %}" class="img-fluid" alt="Responsive image">
+    <br />
+
+    <h1 class="text-center mt-3">Global Variables</h1>
+    <p>Example:-</p>
+    <img src="{% static 'img/lesson_03/18.png' %}" class="img-fluid" alt="Responsive image">
+    <br/>
+    <div class="row mt-4 text-center">
+        <h1>Exercise</h1>
+        <p>Here is some examples that you can check out and improve your knowledge. (replit)</p>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body  text-center">
+                  <h5 class="card-title">Knock-Knock Joke</h5>
+                  <p class="card-text">Let me take you to the childhood! Will you ?</p>
+                  <a href="https://replit.com/join/aztyepdzzp-charunikosala"  target="_blank" class="btn btn-primary">Go</a>
+                </div>
+              </div>                  
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body  text-center">
+                  <h5 class="card-title  ">MotivateMe</h5>
+                  <p class="card-text">When life gives you lemons, make lemonade!</p>
+                  <a href="https://replit.com/join/ynzpaxzrnt-charunikosala" target="_blank" class="btn btn-primary">Go</a>
+                </div>
+              </div>  
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body  text-center">
+                  <h5 class="card-title">Greeting</h5>
+                  <p class="card-text">How are you friends with someone found in the cafeteria?</p>
+                  <a href="https://replit.com/join/cmiafjbryb-charunikosala" target="_blank" class="btn btn-primary">Go</a>
+                </div>
+              </div>  
+        </div>
+    </div>
+    <br/>
+
+    <h1 class="mt-4 text-center">
+        Test
+    </h1>
+    <p>You can do exercise here to get some experience.</p>
+    <div class="editor mt-2" id="editor"></div>
+
+    <div class="my-1 text-center">
+        <button class="btn btn-warning btn-lg" id="runBtn">Run</button>
+    </div>
+
+    <div class="output"></div>
+    
+    <div class="row my-3 text-center">
+        <div class="col-md-12 text-end ">
+            <a href="{% url 'assignment' %}?lesson=1" class="btn btn-lg btn-danger">Assignment</a>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script>    
+        console.log("Ace editor script executing...");
+        if(document.getElementById('editor')) {
+            console.log("Initializing Ace editor...");
+            var editor = ace.edit("editor");
+            editor.setTheme("ace/theme/monokai");
+            editor.session.setMode("ace/mode/c_cpp");
+            editor.session.setMode("ace/mode/python");
+        }
+    </script>
+    <script>
+        // Get a reference to the button element
+        var runBtn = document.getElementById("runBtn");
+        // Add a click event listener to the button
+        runBtn.addEventListener("click", executeCode);
+        function executeCode() {
+            var csrftoken = getCookie('csrftoken');
+            // Include the CSRF token in the Ajax request header
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+            });
+            // Send the Ajax request
+            var code = editor.getSession().getValue();
+            $.ajax({
+                url: "{% url 'execute_code' %}",
+                method: "POST",
+                data: {
+                    code: code
+                },
+                success: function(response) {
+                    // Update the output element with the response
+                    $(".output").text(response);
+                }
+            });
+        }
+        // Get the CSRF token cookie value
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+    </script>

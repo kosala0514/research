@@ -38,7 +38,7 @@
                             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fa-solid fa-person-chalkboard"></i> <span class="ms-1 d-none d-sm-inline">Chapter</span> </a>
                             <ul class="collapse nav flex-column ms-1 text-light ml-4" id="submenu1" data-bs-parent="#menu">
-                                {% if user.chapter_level == 1 %}
+                                {% if user.chapter_level >= 1 %}
                                 <li class="w-100 ml-4">
                                     <a href="{% url 'chapter' %}?lesson=1" class="nav-link px-0"> <span class="d-none d-sm-inline">Introduction</span></a>
                                 </li>
