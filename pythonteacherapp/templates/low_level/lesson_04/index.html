@@ -1,23 +1,32 @@
 {% load static %}
 <div class="my-5 mx-5">
-    <h1 class="text-center mt-3">Types</h1>
+    <h1 class="text-center mt-3">Data Types</h1>
+    <p>Python supports several data types, each with its own characteristics and uses.</p>
     <ul>
         <li>Text Type</li>
-        <p>str</p>
+        <p>str - Represents a sequence of characters enclosed in single quotes ('') or double quotes ("").</p>
         <li>Numeric Types</li>
-        <p>int, float, complex</p>
+        <p>int -  Represents whole numbers, such as 1, -5, or 1000.</p>
+        <p> float - Represents decimal numbers, such as 3.14 or -2.5.</p>
+        <p>complex - Represents numbers with both real and imaginary parts, such as 2 + 3j or -1 - 4j.</p>
         <li>Sequence Types</li>
-        <p>list, tuple, range</p>
+        <p>list - Represents an ordered collection of items enclosed in square brackets. Lists can contain elements of different types and are mutable (modifiable). </p>
+        <p>tuple - Represents an ordered collection of items enclosed in parentheses (()). Tuples are similar to lists, but they are immutable (cannot be modified).</p>
+        <!-- <p>range - </p> -->
         <li>Mapping Type</li>
-        <p>dict</p>
+        <p>dict - Represents a collection of key-value pairs enclosed in curly braces ({}). Keys are unique and used to access corresponding values. Dictionaries are mutable.</p>
         <li>Set Type</li>
-        <p>set, frozenset</p>
+        <p>set - Represents an unordered collection of unique elements enclosed in curly braces ({}). Sets do not allow duplicate values and support set operations like union, intersection, and difference. </p>
+        <p>frozenset -  Similar to a set but is immutable.</p>
         <li>Boolean Types</li>
-        <p>bool</p>
+        <p>bool - Represents truth values, either True or False. It is often used for logical operations and conditions.</p>
         <li>Binary Types</li>
-        <p>bytes, bytearray, memoryview</p>
+        <p>bytes -  The bytes data type represents an immutable sequence of bytes. It is used to store binary data in a fixed-size format. The individual bytes in a bytes object can be accessed using indexing, similar to a string. However, unlike strings, bytes objects are immutable.</p>
+        <p>bytearray - The bytearray data type is similar to bytes, but it represents a mutable sequence of bytes. It allows you to modify individual bytes or perform in-place operations.</p>
+        <p>memoryview -  The memoryview data type provides a way to access the internal data of other binary objects (like bytes or bytearray) without making a copy. It allows for efficient manipulation of large amounts of binary data.</p>
         <li>None Type</li>
-        <p>NoneType</p>
+        <p>NoneType - Represents the absence of a value or a null value. It is often used to indicate the absence of a return value or as an initial/default value.
+        </p>
     </ul>
     <br />
 
