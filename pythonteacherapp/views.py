@@ -223,12 +223,13 @@ def assignment(request):
 @csrf_exempt
 def upload_file(request):
     file_path = os.path.abspath('pythonteacherapp/templates/medium_level/assignments/lesson_01/1.py')
+    code = 0
     if not os.path.exists(file_path):
         return HttpResponse(f"File {file_path} does not exist")
     if request.method == "POST":
         uploaded_file = request.FILES.get('file')
         file_copy = uploaded_file.file # make a copy of the file object
-        result_similarity_ratio = run_the_file(file_copy, file_path)
+        result = run_the_file(file_copy, file_path)
 
         # uploaded_file = request.FILES.get('file')
         # result_similarity_ratio = run_the_file(uploaded_file, file_path)
@@ -245,7 +246,7 @@ def upload_file(request):
             else:
                 print(uploaded_content)
                 similarity_ratio = SequenceMatcher(None, stored_file, uploaded_content).ratio()
-                result = round(result_similarity_ratio, 2)
+                result = round(result, 2)
                 code = round(similarity_ratio, 2)
             if result == 2:
                 content = "Syntax Error - Check again the code !"
@@ -300,79 +301,69 @@ def handle_uploaded_file(uploaded_file):
     return file_path
 
 def get_fuzzy_output(calculated_marks, calculated_time):
+    # Define the input a output variables
+    calculated_marks = 60
+    calculated_time = 35
+    marks = np.arange(0, 101, 1)
+    time = np.arange(0, 101, 1)
+    task = np.arange(0, 101, 1)
 
-    marks = ctrl.Antecedent(np.arange(0, 101, 1), 'marks')
-    time = ctrl.Antecedent(np.arange(0, 51, 1), 'time')
-    task = ctrl.Consequent(np.arange(0, 101, 1), 'task') 
+    # Define the fuzzy membership functions for marks and time
+    low_marks = fuzz.trapmf(marks, [0, 0, 40, 50])
+    average_marks = fuzz.trapmf(marks, [50, 55, 75, 80])
+    high_marks = fuzz.trapmf(marks, [80, 85, 100, 100])
 
-    marks['low'] = fuzz.trapmf(marks.universe, [0, 0, 40, 50])
-    marks['average'] = fuzz.trapmf(marks.universe, [35, 45, 75, 85])
-    marks['high'] = fuzz.trapmf(marks.universe, [70, 80, 100, 100])
+    poor_time = fuzz.trapmf(time, [0, 0, 20, 25])
+    average_time = fuzz.trapmf(time, [25, 30, 35, 40])
+    excellent_time = fuzz.trapmf(time, [40, 45, 50, 50])
 
-    time['average'] = fuzz.trapmf(time.universe, [15, 20, 35, 40])
-    time['excellent'] = fuzz.trapmf(time.universe, [30, 35, 50, 50])
-    time['poor'] = fuzz.trapmf(time.universe, [0, 0, 20, 25])
+    # Define the fuzzy membership functions for the output variable task
+    again_task = fuzz.trimf(task, [0, 0, 50])
+    next_level_task = fuzz.trimf(task, [50, 60, 70])
+    next_chapter_task = fuzz.trimf(task, [70, 100, 100])
 
-    # task.universe = range(101) 
-    task['again'] = fuzz.trimf(task.universe, [0, 0, 50])
-    task['next_level'] = fuzz.trimf(task.universe, [30, 50, 70])
-    task['next_chapter'] = fuzz.trimf(task.universe, [50, 100, 100])
+    # Compute the degree of membership of the input variables in their fuzzy sets
+    marks_low = fuzz.interp_membership(marks, low_marks, calculated_marks)
+    marks_average = fuzz.interp_membership(marks, average_marks, calculated_marks)
+    marks_high = fuzz.interp_membership(marks, high_marks, calculated_marks)
 
-    # Create fuzzy rules
-    rule1 = ctrl.Rule(marks['low'] & time['poor'], task['again'])
-    rule2 = ctrl.Rule(marks['average'] & time['average'], task['next_level'])
-    rule3 = ctrl.Rule(marks['high'] & time['excellent'], task['next_chapter'])
+    time_poor = fuzz.interp_membership(time, poor_time, calculated_time)
+    time_average = fuzz.interp_membership(time, average_time, calculated_time)
+    time_excellent = fuzz.interp_membership(time, excellent_time, calculated_time)
 
-    # Create fuzzy system
-    task_ctrl = ctrl.ControlSystem([rule1, rule2, rule3])
-    task_sim = ctrl.ControlSystemSimulation(task_ctrl)
+    # Apply the fuzzy rules to compute the degree of membership of the output variable in the fuzzy sets
+    # based on the combination of the input variable fuzzy sets
+    rule1 = np.fmin(marks_low, time_poor)
+    again_membership = np.fmin(rule1, again_task)
 
-    # Set input values
-    task_sim.input['marks'] = calculated_marks
-    task_sim.input['time'] = calculated_time
-    print(calculated_marks)
-    print(calculated_time)
-    # Compute output
-    task_sim.compute()
+    rule2 = np.fmin(marks_average, time_average)
+    next_level_membership = np.fmin(rule2, next_level_task)
 
-    # Get fuzzy output set
-    task_output = task_sim.output['task']
-    print(task_output)
-    # task_output =  round(task_output)
-    # task_output = np.array(task_output).ravel()
-    # print(type(task_output));
-    # print("task_output shape:", task_output.shape)
-    # print("task universe shape:", task.universe.shape)
-    # # Defuzzify to obtain crisp output value
-    task_crisp = fuzz.defuzz(task.universe, task_output, 'centroid')
-    print(task_crisp);
-    # Map crisp output to linguistic label
-    task_again_mem = fuzz.interp_membership(task.universe, task_again, task_crisp)
-    task_next_level_mem = fuzz.interp_membership(task.universe, task_next_level, task_crisp)
-    task_next_chapter_mem = fuzz.interp_membership(task.universe, task_next_chapter, task_crisp)
+    rule3 = np.fmin(marks_high, time_excellent)
+    next_chapter_membership = np.fmin(rule3, next_chapter_task)
 
-    # Print the degree of membership for each label
-    print('Again:', task_again_mem)
-    print('Next Level:', task_next_level_mem)
-    print('Next Chapter:', task_next_chapter_mem)
+    # Combine the membership values of the output variable fuzzy sets to form a single fuzzy set
+    aggregated = np.fmax(again_membership, np.fmax(next_level_membership, next_chapter_membership))
 
-    # Determine the label with the highest degree of membership
-    if task_again_mem > task_next_level_mem and task_again_mem > task_next_chapter_mem:
+    # Compute the crisp output value by defuzzifying the fuzzy set
+    task_crisp = fuzz.defuzz(task, aggregated, 'centroid')
+
+    # Print the crisp output value
+    print(task_crisp)
+
+    # Determine the label with the highest degree of membership in the output variable fuzzy sets
+    again_mem = fuzz.interp_membership(task, again_task, task_crisp)
+    next_level_mem = fuzz.interp_membership(task, next_level_task, task_crisp)
+    next_chapter_mem = fuzz.interp_membership(task, next_chapter_task, task_crisp)
+
+    if again_mem > next_level_mem and again_mem > next_chapter_mem:
         print('Task: Again')
-    elif task_next_level_mem > task_again_mem and task_next_level_mem > task_next_chapter_mem:
+    elif next_level_mem > again_mem and next_level_mem > next_chapter_mem:
         print('Task: Next Level')
     else:
         print('Task: Next Chapter')
 
-    #return the output
     return task_crisp
-
-
-
-
-
-
-
 
 # def get_fuzzy_output(calculated_marks, calculated_time):
 #     # Define fuzzy sets for inputs and output
