@@ -1,0 +1,161 @@
+{% load static %}
+<div class="my-5 mx-5">
+    <h1>Dictionaries</h1>
+    <p>One of the 4 built-in data type that can use to store multiple items in a single variable.</p>
+    <p>This is  used to store data values in key:value pairs. Duplicates Not Allowed and Changeable.</p>
+    <p>Dictionaries cannot have two items with the same value.The values True and 1 are considered the same value in dictionarys, and are treated as duplicates.</p>
+    <p>Example:-</p>
+    <img src="{% static 'img/lesson_09/1.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    
+    <h3>Access dictionary item</h3>
+    <p>We can access the items of a dictionary by referring to its key name.</p>
+    <img src="{% static 'img/lesson_09/2.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>The keys() method will return a list of all the keys in the dictionary.</p>
+    <img src="{% static 'img/lesson_09/3.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>The values() method will return a list of all the values in the dictionary.</p>
+    <img src="{% static 'img/lesson_09/4.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>The items() method will return each item in a dictionary, as tuples in a list.</p>
+    <img src="{% static 'img/lesson_09/5.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    
+    <h3>Change Items</h3>
+    <p>We can change the value of a specific item by referring to its key name</p>
+    <img src="{% static 'img/lesson_09/6.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>The update() method will update the dictionary with the items from the given argument.</p>
+    <img src="{% static 'img/lesson_09/7.png' %}" class="img-fluid mt-3" alt="Responsive image">
+
+    <h3>Add dictionary items</h3>
+    <p>Adding an item to the dictionary is done by using a new index key and assigning a value to it</p>
+    <img src="{% static 'img/lesson_09/8.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>The update() method will update the dictionary with the items from a given argument. If the item does not exist, the item will be added.</p>
+    <img src="{% static 'img/lesson_09/9.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    
+    <h3>Remove dictionary item</h3>
+    <p>The pop() method removes the item with the specified key name.</p>
+    <img src="{% static 'img/lesson_09/10.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>The popitem() method removes the last inserted item (in versions before 3.7, a random item is removed instead).</p>
+    <img src="{% static 'img/lesson_09/11.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>The del keyword removes the item with the specified key name.</p>
+    <img src="{% static 'img/lesson_09/12.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>The clear() method empties the dictionary.</p>
+    <img src="{% static 'img/lesson_09/13.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    
+    <h3>loop through a dictionary</h3>
+    <p>We can use for loop</p>
+    <img src="{% static 'img/lesson_09/14.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>We can also use the values() method to return values of a dictionary.</p>
+    <img src="{% static 'img/lesson_09/15.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>We can use the keys() method to return the keys of a dictionary.</p>
+    <img src="{% static 'img/lesson_09/16.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <p>Loop through both keys and values, by using the items() method.</p>
+    <img src="{% static 'img/lesson_09/17.png' %}" class="img-fluid mt-3" alt="Responsive image">
+    <br/>
+    <div class="row mt-4 text-center">
+        <h1>Exercise</h1>
+        <p>Here is some examples that you can check out and improve your knowledge. (replit)</p>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body  text-center">
+                  <h5 class="card-title">Relay Race</h5>
+                  <p class="card-text">Let's checkout what's going on in the relay race !</p>
+                  <a href="https://replit.com/join/ddfobhqobd-charunikosala"  target="_blank" class="btn btn-primary">Go</a>
+                </div>
+              </div>                  
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body  text-center">
+                  <h5 class="card-title  ">Scavenger Hunt</h5>
+                  <p class="card-text">Do you know about scavenger hunt ?</p>
+                  <a href="https://replit.com/join/azcpffehtr-charunikosala" target="_blank" class="btn btn-primary">Go</a>
+                </div>
+              </div>  
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body  text-center">
+                  <h5 class="card-title">Charades</h5>
+                  <p class="card-text">Let's checkout in the dictionary charades !</p>
+                  <a href="https://replit.com/join/cmiafjbryb-charunikosala" target="_blank" class="btn btn-primary">Go</a>
+                </div>
+              </div>  
+        </div>
+    </div>
+    <br/>
+
+    <h1 class="mt-4 text-center">
+        Test
+    </h1>
+    <p>You can do exercise here to get some experience.</p>
+    <div class="editor mt-2" id="editor"></div>
+
+    <div class="my-1 text-center">
+        <button class="btn btn-warning btn-lg" id="runBtn">Run</button>
+    </div>
+
+    <div class="output"></div>
+    
+    <div class="row my-3 text-center">
+        <div class="col-md-12 text-end ">
+            <a href="{% url 'assignment' %}?lesson=1" class="btn btn-lg btn-danger">Assignment</a>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script>    
+        console.log("Ace editor script executing...");
+        if(document.getElementById('editor')) {
+            console.log("Initializing Ace editor...");
+            var editor = ace.edit("editor");
+            editor.setTheme("ace/theme/monokai");
+            editor.session.setMode("ace/mode/c_cpp");
+            editor.session.setMode("ace/mode/python");
+        }
+    </script>
+    <script>
+        // Get a reference to the button element
+        var runBtn = document.getElementById("runBtn");
+        // Add a click event listener to the button
+        runBtn.addEventListener("click", executeCode);
+        function executeCode() {
+            var csrftoken = getCookie('csrftoken');
+            // Include the CSRF token in the Ajax request header
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+            });
+            // Send the Ajax request
+            var code = editor.getSession().getValue();
+            $.ajax({
+                url: "{% url 'execute_code' %}",
+                method: "POST",
+                data: {
+                    code: code
+                },
+                success: function(response) {
+                    // Update the output element with the response
+                    $(".output").text(response);
+                }
+            });
+        }
+        // Get the CSRF token cookie value
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+    </script>

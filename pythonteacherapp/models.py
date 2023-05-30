@@ -7,6 +7,9 @@ class User(models.Model):
     email = models.EmailField()
     contact = models.CharField(max_length=15)
     test_marks = models.FloatField(max_length=15, default='0.00', editable=False)
+    chapter_level = models.IntegerField(default=1, editable=False)
+    assignment_level = models.IntegerField(default=1, editable=False)
+    assignment_progress_level = models.IntegerField(default=1, editable=False)
 
     class Meta:
         db_table = 'user'

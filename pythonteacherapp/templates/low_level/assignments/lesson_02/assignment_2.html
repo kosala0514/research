@@ -1,0 +1,237 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<div id="div2" class="container my-5">
+    <div class="card shadow p-5 text-center bg-warning text-dark">
+        <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>
+    </div>
+</div>
+<div class="container my-5" id="div1">
+    <div class="card bg-danger p-2 text-light text-center shadow mb-3">
+        <p><b>There is extra 10 min to prepare yourself for the take assignment. Take your time and feel free. Believe
+                in yourself. Best of luck</b></p>
+        <div class="">
+            <span id="countdown"></span>
+        </div>
+    </div>
+    {% if level == 1 %}
+    <h3>Scenario : </h3>
+    <p>Write a program that prompts the user to enter a string and then prints the string in all uppercase letters.</p>
+    <p class="text-danger">The output must be like this. (word must same as here)</p>
+    <div class="card bg-dark text-light">
+        <div class="p-3">
+            <p>Enter a string: hello</p>
+            
+            <p>Uppercase string: HELLO</p>
+        </div>
+    </div>
+
+    <div>
+        <div class="editor mt-2" id="editor"></div>
+
+        <div class="my-1 text-center">
+            <button class="btn btn-warning btn-lg" id="runBtn">Run</button>
+        </div>
+
+        <div class="output"></div>
+    </div>
+    {% endif %}
+
+    {% if level == 2 %}
+    <h3>Scenario : </h3>
+    <p>Write a program that asks the user for their age and then calculates and prints the user's age in months. Assume that there are 12 months in a year.</p>
+    <p class="text-danger">The output must be like this. (word must same as here)</p>
+    <div class="card bg-dark text-light">
+        <div class="p-3">
+            <p>Enter your age : 10</p>
+            
+            <p>Your age in months is: 120</p>
+        </div>
+    </div>
+    <div>
+        <div class="editor mt-2" id="editor"></div>
+
+        <div class="my-1 text-center">
+            <button class="btn btn-warning btn-lg" id="runBtn">Run</button>
+        </div>
+
+        <div class="output"></div>
+    </div>
+    {% endif %}
+
+    {% if level == 3 %}
+    <h3>Scenario : </h3>
+    <p>Write a program that prompts the user to enter a sentence and then prints the number of words in that sentence.</p>
+    <p class="text-danger">The output must be like this. (word must same as here)</p>
+    <div class="card bg-dark text-light">
+        <div class="p-3">
+            <p>Enter a sentence: Have a nice day!</p>
+            
+            <p>Number of words:4</p>
+        </div>
+    </div>
+    <div>
+        <div class="editor mt-2" id="editor"></div>
+
+        <div class="my-1 text-center">
+            <button class="btn btn-warning btn-lg" id="runBtn">Run</button>
+        </div>
+
+        <div class="output"></div>
+    </div>
+    {% endif %}
+    <div class="card bg-danger p-2 text-light text-center shadow my-3">
+        <p><b>You can test your work with above editor. If you are not comfortable you can use your own editor(VSCode).
+                You must save your file as python file (with .py extension). You must submit your answer within the time
+                period. If not it take as attempt and fail the attempted assignment.</b></p>
+       
+    </div>
+    <h1>Upload a File</h1>
+    <form id="myForm">
+        {% csrf_token %}
+        <input type="file" name="file">
+        <button type="submit">Upload</button>
+    </form>
+    <div id="response"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+<script>
+    console.log("Ace editor script executing...");
+    if (document.getElementById('editor')) {
+        console.log("Initializing Ace editor...");
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/c_cpp");
+        editor.session.setMode("ace/mode/python");
+    }
+</script>
+<script>
+    // Get a reference to the button element
+    var runBtn = document.getElementById("runBtn");
+
+    // Add a click event listener to the button
+    runBtn.addEventListener("click", executeCode);
+
+    function executeCode() {
+
+        var csrftoken = getCookie('csrftoken');
+
+        // Include the CSRF token in the Ajax request header
+        $.ajaxSetup({
+            beforeSend: function (xhr, settings) {
+                if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
+        // Send the Ajax request
+        var code = editor.getSession().getValue();
+        $.ajax({
+            url: "{% url 'execute_code' %}",
+            method: "POST",
+            data: {
+                code: code
+            },
+            success: function (response) {
+                // Update the output element with the response
+                $(".output").text(response);
+            }
+        });
+    }
+    // Get the CSRF token cookie value
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+</script>
+
+<script>
+    // set the default duration to 45 minutes
+    var duration = 50 * 60 * 1000;
+
+    // calculate the end time from the current time and the duration
+    var endTime = new Date(Date.now() + duration);
+
+
+    // update the countdown timer every second
+    var countdown = setInterval(function () {
+        // get the current time
+        var now = new Date();
+
+        // calculate the time remaining in seconds
+        var seconds = Math.floor((endTime - now) / 1000);
+        // document.getElementById("div2").style.display = "none";
+        // document.getElementById("div1").style.display = "block";
+
+        // if the countdown has ended, clear the timer
+        document.getElementById("div2").style.display = "none";
+        document.getElementById("div1").style.display = "block";
+        if (seconds <= 0) {
+            // console.log('not here')
+            clearInterval(countdown);
+            document.getElementById("countdown").innerHTML = "Time is up.";
+            document.getElementById("div1").style.display = "none";
+            document.getElementById("div2").style.display = "block";
+        } else {
+            // console.log('here')
+            // calculate the hours, minutes, and seconds remaining
+            document.getElementById("div2").style.display = "none";
+            document.getElementById("div1").style.display = "block";
+            var hours = Math.floor(seconds / 3600);
+            seconds -= hours * 3600;
+            var minutes = Math.floor(seconds / 60);
+            seconds -= minutes * 60;
+
+            // display the remaining time in the countdown timer
+            var countdownText = hours.toString().padStart(2, '0') + ":" +
+                minutes.toString().padStart(2, '0') + ":" +
+                seconds.toString().padStart(2, '0');
+            document.getElementById("countdown").innerHTML = countdownText;
+        }
+    }, 1000);
+
+    const form = document.getElementById('myForm');
+    const responseDiv = document.getElementById('response');
+
+    form.addEventListener('submit', event => {
+        event.preventDefault();
+        var now = new Date();
+        var seconds = Math.floor((endTime - now) / 1000);
+        var hours = Math.floor(seconds / 3600);
+        seconds -= hours * 3600;
+        var minutes = Math.floor(seconds / 60);
+        seconds -= minutes * 60;
+        var remainingTime = hours * 3600 + minutes * 60 + seconds;
+        var formData = new FormData(form);
+        console.log(remainingTime)
+        formData.append("remaining_time", remainingTime);
+        fetch('/upload_file', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                // if (data.success) {
+                //   responseDiv.innerText = 'File uploaded successfully';
+                // } else {
+                //   responseDiv.innerText = `Error: ${data.message}`;
+                // }
+            })
+            .catch(error => {
+                responseDiv.innerText = `Error: ${error}`;
+            });
+    });
+</script>
