@@ -373,8 +373,9 @@ def upload_file(request):
     if request.method == "POST":
         uploaded_file = request.FILES.get('file')
         file_copy = uploaded_file.file # make a copy of the file object
+        #return HttpResponse(file_copy)
         result = run_the_file(file_copy, file_path)
-
+        #return HttpResponse(result)
         # uploaded_file = request.FILES.get('file')
         # result_similarity_ratio = run_the_file(uploaded_file, file_path)
         # uploaded_file_2 = request.FILES.get('file')
@@ -384,7 +385,8 @@ def upload_file(request):
         if uploaded_file:
             with open(file_path, 'rb') as f: 
                 stored_file = f.read()
-            uploaded_content = uploaded_file.read()
+            uploaded_content = uploaded_file.file.getvalue().decode('utf-8')
+            #return HttpResponse(uploaded_content.getvalue().decode('utf-8'))
             if len(uploaded_content) == 0:
                 print("The uploaded file is empty.")
             else:
@@ -398,7 +400,8 @@ def upload_file(request):
                     content = "Check again the code and make sure that all the keywords are included!"
                 else:
                     task = get_fuzzy_output(code, time)
-                    # content = f"Final result : {task}"
+                    content = f"Final result : {task}"
+                    #return HttpResponse(content)
                     if task =='again':
                         return ''
                     elif task== 'next_level':
@@ -508,14 +511,18 @@ def get_fuzzy_output(calculated_marks, calculated_time):
     next_level_mem = fuzz.interp_membership(task, next_level_task, task_crisp)
     next_chapter_mem = fuzz.interp_membership(task, next_chapter_task, task_crisp)
 
+    result = ""
     if again_mem > next_level_mem and again_mem > next_chapter_mem:
         print('Task: Again')
+        result = "again"
     elif next_level_mem > again_mem and next_level_mem > next_chapter_mem:
         print('Task: Next Level')
+        result = "next_level"
     else:
         print('Task: Next Chapter')
+        result = "next_chapter"
 
-    return task_crisp
+    return result
 
 # def get_fuzzy_output(calculated_marks, calculated_time):
 #     # Define fuzzy sets for inputs and output
