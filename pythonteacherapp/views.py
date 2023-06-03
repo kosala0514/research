@@ -260,23 +260,23 @@ def assignment(request):
     global loging_user
     if loging_user.test_marks < 40 :
         if number == 1:
-            content = render_to_string('low_level/assignments/lesson_01/assignment_1.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('low_level/assignments/lesson_1/assignment_1.html', {'level':loging_user.assignment_progress_level})
         elif number == 2:
-            content = render_to_string('low_level/assignments/lesson_02/assignment_2.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('low_level/assignments/lesson_2/assignment_2.html', {'level':loging_user.assignment_progress_level})
         elif number == 3:
-            content = render_to_string('low_level/assignments/lesson_03/assignment_3.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('low_level/assignments/lesson_3/assignment_3.html', {'level':loging_user.assignment_progress_level})
         elif number == 4:
-            content = render_to_string('low_level/assignments/lesson_04/assignment_4.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('low_level/assignments/lesson_4/assignment_4.html', {'level':loging_user.assignment_progress_level})
         elif number == 5:
-            content = render_to_string('low_level/assignments/lesson_05/assignment_5.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('low_level/assignments/lesson_5/assignment_5.html', {'level':loging_user.assignment_progress_level})
         elif number == 6:
-            content = render_to_string('low_level/assignments/lesson_06/assignment_6.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('low_level/assignments/lesson_6/assignment_6.html', {'level':loging_user.assignment_progress_level})
         elif number == 7:
-            content = render_to_string('low_level/assignments/lesson_07/assignment_7.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('low_level/assignments/lesson_7/assignment_7.html', {'level':loging_user.assignment_progress_level})
         elif number == 8:
-            content = render_to_string('low_level/assignments/lesson_08/assignment_8.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('low_level/assignments/lesson_8/assignment_8.html', {'level':loging_user.assignment_progress_level})
         elif number == 9:
-            content = render_to_string('low_level/assignments/lesson_09/assignment_9.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('low_level/assignments/lesson_9/assignment_9.html', {'level':loging_user.assignment_progress_level})
         elif number == 10:
             content = render_to_string('low_level/assignments/lesson_10/assignment_10.html', {'level':loging_user.assignment_progress_level})
         elif number == 11:
@@ -294,23 +294,23 @@ def assignment(request):
 
     elif loging_user.test_marks < 75 :
         if number == 1:
-            content = render_to_string('medium_level/assignments/lesson_01/assignment_1.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('medium_level/assignments/lesson_1/assignment_1.html', {'level':loging_user.assignment_progress_level})
         elif number == 2:
-            content = render_to_string('medium_level/assignments/lesson_02/assignment_2.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('medium_level/assignments/lesson_2/assignment_2.html', {'level':loging_user.assignment_progress_level})
         elif number == 3:
-            content = render_to_string('medium_level/assignments/lesson_03/assignment_3.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('medium_level/assignments/lesson_3/assignment_3.html', {'level':loging_user.assignment_progress_level})
         elif number == 4:
-            content = render_to_string('medium_level/assignments/lesson_04/assignment_4.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('medium_level/assignments/lesson_4/assignment_4.html', {'level':loging_user.assignment_progress_level})
         elif number == 5:
-            content = render_to_string('medium_level/assignments/lesson_05/assignment_5.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('medium_level/assignments/lesson_5/assignment_5.html', {'level':loging_user.assignment_progress_level})
         elif number == 6:
-            content = render_to_string('medium_level/assignments/lesson_06/assignment_6.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('medium_level/assignments/lesson_6/assignment_6.html', {'level':loging_user.assignment_progress_level})
         elif number == 7:
-            content = render_to_string('medium_level/assignments/lesson_07/assignment_7.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('medium_level/assignments/lesson_7/assignment_7.html', {'level':loging_user.assignment_progress_level})
         elif number == 8:
-            content = render_to_string('medium_level/assignments/lesson_08/assignment_8.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('medium_level/assignments/lesson_8/assignment_8.html', {'level':loging_user.assignment_progress_level})
         elif number == 9:
-            content = render_to_string('medium_level/assignments/lesson_09/assignment_9.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('medium_level/assignments/lesson_9/assignment_9.html', {'level':loging_user.assignment_progress_level})
         elif number == 10:
             content = render_to_string('medium_level/assignments/lesson_10/assignment_10.html', {'level':loging_user.assignment_progress_level})
         elif number == 11:
@@ -328,23 +328,23 @@ def assignment(request):
 
     else :
         if number == 1:
-            content = render_to_string('high_level/assignments/lesson_01/assignment_1.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('high_level/assignments/lesson_1/assignment_1.html', {'level':loging_user.assignment_progress_level})
         elif number == 2:
-            content = render_to_string('high_level/assignments/lesson_02/assignment_2.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('high_level/assignments/lesson_2/assignment_2.html', {'level':loging_user.assignment_progress_level})
         elif number == 3:
-            content = render_to_string('high_level/assignments/lesson_03/assignment_3.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('high_level/assignments/lesson_3/assignment_3.html', {'level':loging_user.assignment_progress_level})
         elif number == 4:
-            content = render_to_string('high_level/assignments/lesson_04/assignment_4.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('high_level/assignments/lesson_4/assignment_4.html', {'level':loging_user.assignment_progress_level})
         elif number == 5:
-            content = render_to_string('high_level/assignments/lesson_05/assignment_5.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('high_level/assignments/lesson_5/assignment_5.html', {'level':loging_user.assignment_progress_level})
         elif number == 6:
-            content = render_to_string('high_level/assignments/lesson_06/assignment_6.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('high_level/assignments/lesson_6/assignment_6.html', {'level':loging_user.assignment_progress_level})
         elif number == 7:
-            content = render_to_string('high_level/assignments/lesson_07/assignment_7.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('high_level/assignments/lesson_7/assignment_7.html', {'level':loging_user.assignment_progress_level})
         elif number == 8:
-            content = render_to_string('high_level/assignments/lesson_08/assignment_8.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('high_level/assignments/lesson_8/assignment_8.html', {'level':loging_user.assignment_progress_level})
         elif number == 9:
-            content = render_to_string('high_level/assignments/lesson_09/assignment_9.html', {'level':loging_user.assignment_progress_level})
+            content = render_to_string('high_level/assignments/lesson_9/assignment_9.html', {'level':loging_user.assignment_progress_level})
         elif number == 10:
             content = render_to_string('high_level/assignments/lesson_10/assignment_10.html', {'level':loging_user.assignment_progress_level})
         elif number == 11:
@@ -366,15 +366,25 @@ def assignment(request):
 def upload_file(request):
     content = ''
     global loging_user
-    file_path = os.path.abspath('pythonteacherapp/templates/medium_level/assignments/lesson_01/1.py')
+    lesson_number = loging_user.chapter_level
+    file_name = loging_user.assignment_progress_level
+    file_path = os.path.abspath(f'pythonteacherapp/templates/medium_level/assignments/lesson_{lesson_number}/{file_name}.py')
+    # print("File Path ------------>>>>")
+    # print(file_path)
+    # print(not os.path.exists(file_path))
     code = 0
     if not os.path.exists(file_path):
         return HttpResponse(f"File {file_path} does not exist")
     if request.method == "POST":
+        # print("use POST ----------->")
         uploaded_file = request.FILES.get('file')
+        # print("content ----------->")
         file_copy = uploaded_file.file # make a copy of the file object
+        # print("file copy ----------->")
         #return HttpResponse(file_copy)
         result = run_the_file(file_copy, file_path)
+        print("result ----------->")
+        print(result)
         #return HttpResponse(result)
         # uploaded_file = request.FILES.get('file')
         # result_similarity_ratio = run_the_file(uploaded_file, file_path)
@@ -384,37 +394,54 @@ def upload_file(request):
         # print(result_similarity_ratio); 
         if uploaded_file:
             with open(file_path, 'rb') as f: 
-                stored_file = f.read()
+                stored_file = f.read().decode('utf-8')
             uploaded_content = uploaded_file.file.getvalue().decode('utf-8')
             #return HttpResponse(uploaded_content.getvalue().decode('utf-8'))
             if len(uploaded_content) == 0:
                 print("The uploaded file is empty.")
             else:
+                print("File content : ")
                 print(uploaded_content)
+                print(stored_file)
                 similarity_ratio = SequenceMatcher(None, stored_file, uploaded_content).ratio()
                 result = round(result, 2)
-                code = round(similarity_ratio, 2)
+                code = round((similarity_ratio*100), 2)
+                print("result +++++++++++++++>")
+                print(code)
                 if result == 2:
                     content = "Syntax Error - Check again the code !"
+                    return HttpResponse(content) 
                 elif result != 1:
                     content = "Check again the code and make sure that all the keywords are included!"
+                    return HttpResponse(content)
                 else:
+                    # global loging_user
+                    user = User.objects.get(id=loging_user.id)
+                    # print(loging_user)
                     task = get_fuzzy_output(code, time)
-                    content = f"Final result : {task}"
+                    print('Fuzzy output ----------------------- >>>>>> ')
+                    print(task)
+                    # content = task
                     #return HttpResponse(content)
                     if task =='again':
                         return ''
                     elif task== 'next_level':
-                        loging_user.assignment_progress_level += 1
+                        if user.assignment_progress_level == 3:
+                            user.assignment_progress_level = 3
+                        else:
+                            user.assignment_progress_level += 1
                     elif task =='next_chapter':
-                        loging_user.assignment_progress_level = 1
-                        loging_user.chapter_level += 1        
+                        user.assignment_progress_level = 1
+                        user.chapter_level += 1   
+                        user.assignment_level += 1 
+                    user.save()     
 
             # content = f"File uploaded successfully. Similarity ratio: {result}"
         else:
             content = render_to_string('medium_level/welcome.html')
         return HttpResponse(content)
     else:
+        print("POST else ------------>>>>")
         content = ''
     return HttpResponse(content)
 
@@ -457,8 +484,8 @@ def handle_uploaded_file(uploaded_file):
 
 def get_fuzzy_output(calculated_marks, calculated_time):
     # Define the input a output variables
-    calculated_marks = 60
-    calculated_time = 35
+    # calculated_marks = 60
+    # calculated_time = 35
     marks = np.arange(0, 101, 1)
     time = np.arange(0, 101, 1)
     task = np.arange(0, 101, 1)
