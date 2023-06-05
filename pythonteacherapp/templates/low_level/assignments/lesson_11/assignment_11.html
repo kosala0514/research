@@ -4,24 +4,29 @@
 <h1 class="mt-5">Assignment List</h1>
 {% for assignment in assignments %}
 <div>
-    {% if assignment.assignment_level == '11' && assignment.assignment_progress_level == '1' %}
+    {% if assignment.assignment_level == '11' and assignment.assignment_progress_level == '1' %}
     <h3>Scenario : </h3>
-    <p>Get your friend first name and last name and display full name as output.</p>
-    {% endif %}
-
-    {% if assignment.assignment_level == '11' && assignment.assignment_progress_level == '2' %}
-    <h3>Scenario : </h3>
-    <p>Write a program that prompts the user to enter their name and age, and then prints a message that says "Hello,
-        [name], you are [age] years old!".</p>
-    {% endif %}
-
-    {% if assignment.assignment_level == '11' && assignment.assignment_progress_level == '3' %}
-    <h3>Scenario : </h3>
-    <p>Write a program that prompts the user to enter a string and then prints the string backwards.</p>
-    {% endif %}
+    <p>You have a string - hello. Write a Python for loop that prints out each character in the string on a new line.</p>
     <h2>Marks: {{ assignment.marks }}</h2>
     <h2>Status / Message: {{ assignment.message }}</h2>
     <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '11' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>Suppose you have a list of numbers [1, 2, 3, 4, 5]. Write a Python for loop that doubles each number in the list and stores it in a new list called doubled_numbers.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '11' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>You have a list of numbers [1, 2, 3, 4, 5]. Write a Python while loop that removes the first element of the list until the list is empty, printing out each removed element on a new line.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
 </div>
 {% endfor %}
 {% endif %}

@@ -1,5 +1,41 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% if chapter != 8 %}
+<h1 class="mt-5">Assignment List</h1>
+{% for assignment in assignments %}
+<div>
+    {% if assignment.assignment_level == '8' and assignment.assignment_progress_level == '1' %}
+    <h3>Scenario : </h3>
+    <p>Write a Python code that takes in two sentences as string arguments and returns a set of all the common words between the two sentences. you can use intersection() for this. Sentences are blow.
+    </p>
+    <p>The quick brown fox jumps over the lazy dog.</p>
+    <p>A quick brown dog jumps over the lazy fox.</p>
+<h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '8' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>Write a Python code that takes in a sentence as a string argument and returns a set of all unique words in the sentence. Sentence is below.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '8' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>Write a Python code that takes in two sets as arguments and returns a new set containing all the elements that are common between the two input sets. You can use intersection(). Initialize two sets as below.</p>
+    <p>set1 = {1, 2, 3, 4, 5}</p>
+    <p>set2 = {4, 5, 6, 7, 8}</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+</div>
+{% endfor %}
+{% endif %}
+{% if chapter == 8 %}
 <div id="div2" class="container my-5">
     <div class="card shadow p-5 text-center bg-warning text-dark">
         <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>
@@ -88,6 +124,7 @@
     </form>
     <div id="response"></div>
 </div>
+{% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 <script>
     console.log("Ace editor script executing...");

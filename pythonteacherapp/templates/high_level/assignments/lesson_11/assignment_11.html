@@ -1,5 +1,36 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% if chapter != 11 %}
+<h1 class="mt-5">Assignment List</h1>
+{% for assignment in assignments %}
+<div>
+    {% if assignment.assignment_level == '11' and assignment.assignment_progress_level == '1' %}
+    <h3>Scenario : </h3>
+    <p>You have a string - hello. Write a Python for loop that prints out each character in the string on a new line.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '11' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>Suppose you have a list of numbers [1, 2, 3, 4, 5]. Write a Python for loop that doubles each number in the list and stores it in a new list called doubled_numbers.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '11' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>You have a list of numbers [1, 2, 3, 4, 5]. Write a Python while loop that removes the first element of the list until the list is empty, printing out each removed element on a new line.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+</div>
+{% endfor %}
+{% endif %}
+{% if chapter == 11 %}
 <div id="div2" class="container my-5">
     <div class="card shadow p-5 text-center bg-warning text-dark">
         <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>

@@ -4,24 +4,29 @@
 <h1 class="mt-5">Assignment List</h1>
 {% for assignment in assignments %}
 <div>
-    {% if assignment.assignment_level == '10' && assignment.assignment_progress_level == '1' %}
+    {% if assignment.assignment_level == '10' and assignment.assignment_progress_level == '1' %}
     <h3>Scenario : </h3>
-    <p>Get your friend first name and last name and display full name as output.</p>
-    {% endif %}
-
-    {% if assignment.assignment_level == '10' && assignment.assignment_progress_level == '2' %}
-    <h3>Scenario : </h3>
-    <p>Write a program that prompts the user to enter their name and age, and then prints a message that says "Hello,
-        [name], you are [age] years old!".</p>
-    {% endif %}
-
-    {% if assignment.assignment_level == '10' && assignment.assignment_progress_level == '3' %}
-    <h3>Scenario : </h3>
-    <p>Write a program that prompts the user to enter a string and then prints the string backwards.</p>
-    {% endif %}
+    <p>Suppose you're creating a program that calculates the cost of a pizza based on its size and toppings. Write an if..else statement that will add $1 to the total cost if the user selects pepperoni as a topping, and leave the cost unchanged if they don't select pepperoni.</p>
     <h2>Marks: {{ assignment.marks }}</h2>
     <h2>Status / Message: {{ assignment.message }}</h2>
     <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '10' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>You're creating a program that converts temperatures from Celsius to Fahrenheit. Write an if..else statement that will print "The temperature is below freezing" if the converted temperature is below 32 degrees Fahrenheit, and "The temperature is above freezing" if it's 32 degrees or higher.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '10' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>Imagine you're creating a program that prompts the user to enter a number between 1 and 10. Write an if..else statement that will print "Your number is in range" if the user enters a number between 1 and 10 (inclusive), and "Your number is out of range" if they enter a number outside that range.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
 </div>
 {% endfor %}
 {% endif %}

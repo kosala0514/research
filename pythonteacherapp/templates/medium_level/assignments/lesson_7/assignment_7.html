@@ -1,5 +1,36 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% if chapter != 7 %}
+<h1 class="mt-5">Assignment List</h1>
+{% for assignment in assignments %}
+<div>
+    {% if assignment.assignment_level == '7' and assignment.assignment_progress_level == '1' %}
+    <h3>Scenario : </h3>
+    <p>Write a Python code that takes a tuple of integers as an argument and returns the maximum integer in the tuple.(numbers = (10, 5, 8, 21, 13, 4))</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '7' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>Write a Python code that takes a tuple as an argument and returns a new tuple with all the duplicate values removed.You can use tuple(set(tuple_name)) to get unique values.(tuple_with_duplicates = (1, 2, 3, 2, 4, 5, 3, 6, 4))</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '7' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>Write a code that takes a tuple of integers as an argument and returns the sum of all the integers in the tuple. You can use sum() function for this.(my_tuple = (1, 2, 3, 4, 5))</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+</div>
+{% endfor %}
+{% endif %}
+{% if chapter == 7 %}
 <div id="div2" class="container my-5">
     <div class="card shadow p-5 text-center bg-warning text-dark">
         <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>
@@ -87,6 +118,7 @@
     </form>
     <div id="response"></div>
 </div>
+{% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 <script>
     console.log("Ace editor script executing...");

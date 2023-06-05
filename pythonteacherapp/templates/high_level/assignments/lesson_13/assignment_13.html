@@ -1,5 +1,36 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% if chapter != 13 %}
+<h1 class="mt-5">Assignment List</h1>
+{% for assignment in assignments %}
+<div>
+    {% if assignment.assignment_level == '13' and assignment.assignment_progress_level == '1' %}
+    <h3>Scenario : </h3>
+    <p>Suppose you have a list of tuples containing names and ages of people [('Kumar', 25), ('John', 30), ('Madu', 20)]. You want to sort this list in ascending order based on the age of the person. Write a lambda function that can be used with the sorted() function to achieve this.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '13' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>You are building a function that accepts two arguments, a list of numbers and a lambda function. The function should use the lambda function to filter the list of numbers and return only the even numbers. Write the lambda function that can be used for this purpose.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '13' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>You are building a function that accepts two arguments, a list of integers [1, 2, 3, 4, 5] and a lambda function. The function should use the lambda function to calculate the square of each number in the list and return the resulting list. Write the lambda function that can be used for this purpose.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+</div>
+{% endfor %}
+{% endif %}
+{% if chapter == 13 %}
 <div id="div2" class="container my-5">
     <div class="card shadow p-5 text-center bg-warning text-dark">
         <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>
@@ -71,6 +102,7 @@
     </form>
     <div id="response"></div>
 </div>
+{% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 <script>
     console.log("Ace editor script executing...");

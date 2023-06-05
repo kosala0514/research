@@ -4,24 +4,34 @@
 <h1 class="mt-5">Assignment List</h1>
 {% for assignment in assignments %}
 <div>
-    {% if assignment.assignment_level == '8' && assignment.assignment_progress_level == '1' %}
+    {% if assignment.assignment_level == '8' and assignment.assignment_progress_level == '1' %}
     <h3>Scenario : </h3>
-    <p>Get your friend first name and last name and display full name as output.</p>
+    <p>Write a Python code that takes in two sentences as string arguments and returns a set of all the common words between the two sentences. you can use intersection() for this. Sentences are blow.
+    </p>
+    <p>The quick brown fox jumps over the lazy dog.</p>
+    <p>A quick brown dog jumps over the lazy fox.</p>
+<h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
     {% endif %}
 
-    {% if assignment.assignment_level == '8' && assignment.assignment_progress_level == '2' %}
+    {% if assignment.assignment_level == '8' and assignment.assignment_progress_level == '2' %}
     <h3>Scenario : </h3>
-    <p>Write a program that prompts the user to enter their name and age, and then prints a message that says "Hello,
-        [name], you are [age] years old!".</p>
+    <p>Write a Python code that takes in a sentence as a string argument and returns a set of all unique words in the sentence. Sentence is below.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
     {% endif %}
 
-    {% if assignment.assignment_level == '8' && assignment.assignment_progress_level == '3' %}
+    {% if assignment.assignment_level == '8' and assignment.assignment_progress_level == '3' %}
     <h3>Scenario : </h3>
-    <p>Write a program that prompts the user to enter a string and then prints the string backwards.</p>
-    {% endif %}
+    <p>Write a Python code that takes in two sets as arguments and returns a new set containing all the elements that are common between the two input sets. You can use intersection(). Initialize two sets as below.</p>
+    <p>set1 = {1, 2, 3, 4, 5}</p>
+    <p>set2 = {4, 5, 6, 7, 8}</p>
     <h2>Marks: {{ assignment.marks }}</h2>
     <h2>Status / Message: {{ assignment.message }}</h2>
     <hr>
+    {% endif %}
 </div>
 {% endfor %}
 {% endif %}

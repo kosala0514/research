@@ -1,5 +1,36 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% if chapter != 10 %}
+<h1 class="mt-5">Assignment List</h1>
+{% for assignment in assignments %}
+<div>
+    {% if assignment.assignment_level == '10' and assignment.assignment_progress_level == '1' %}
+    <h3>Scenario : </h3>
+    <p>Suppose you're creating a program that calculates the cost of a pizza based on its size and toppings. Write an if..else statement that will add $1 to the total cost if the user selects pepperoni as a topping, and leave the cost unchanged if they don't select pepperoni.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '10' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>You're creating a program that converts temperatures from Celsius to Fahrenheit. Write an if..else statement that will print "The temperature is below freezing" if the converted temperature is below 32 degrees Fahrenheit, and "The temperature is above freezing" if it's 32 degrees or higher.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '10' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>Imagine you're creating a program that prompts the user to enter a number between 1 and 10. Write an if..else statement that will print "Your number is in range" if the user enters a number between 1 and 10 (inclusive), and "Your number is out of range" if they enter a number outside that range.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+</div>
+{% endfor %}
+{% endif %}
+{% if chapter == 10 %}
 <div id="div2" class="container my-5">
     <div class="card shadow p-5 text-center bg-warning text-dark">
         <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>
@@ -94,6 +125,7 @@
     </form>
     <div id="response"></div>
 </div>
+{ % endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 <script>
     console.log("Ace editor script executing...");

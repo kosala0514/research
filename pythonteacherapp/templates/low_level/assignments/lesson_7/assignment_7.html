@@ -4,24 +4,29 @@
 <h1 class="mt-5">Assignment List</h1>
 {% for assignment in assignments %}
 <div>
-    {% if assignment.assignment_level == '7' && assignment.assignment_progress_level == '1' %}
+    {% if assignment.assignment_level == '7' and assignment.assignment_progress_level == '1' %}
     <h3>Scenario : </h3>
-    <p>Get your friend first name and last name and display full name as output.</p>
-    {% endif %}
-
-    {% if assignment.assignment_level == '7' && assignment.assignment_progress_level == '2' %}
-    <h3>Scenario : </h3>
-    <p>Write a program that prompts the user to enter their name and age, and then prints a message that says "Hello,
-        [name], you are [age] years old!".</p>
-    {% endif %}
-
-    {% if assignment.assignment_level == '7' && assignment.assignment_progress_level == '3' %}
-    <h3>Scenario : </h3>
-    <p>Write a program that prompts the user to enter a string and then prints the string backwards.</p>
-    {% endif %}
+    <p>Write a Python code that takes a tuple of integers as an argument and returns the maximum integer in the tuple.(numbers = (10, 5, 8, 21, 13, 4))</p>
     <h2>Marks: {{ assignment.marks }}</h2>
     <h2>Status / Message: {{ assignment.message }}</h2>
     <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '7' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>Write a Python code that takes a tuple as an argument and returns a new tuple with all the duplicate values removed.You can use tuple(set(tuple_name)) to get unique values.(tuple_with_duplicates = (1, 2, 3, 2, 4, 5, 3, 6, 4))</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '7' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>Write a code that takes a tuple of integers as an argument and returns the sum of all the integers in the tuple. You can use sum() function for this.(my_tuple = (1, 2, 3, 4, 5))</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
 </div>
 {% endfor %}
 {% endif %}

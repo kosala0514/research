@@ -1,5 +1,49 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% if chapter != 9 %}
+<h1 class="mt-5">Assignment List</h1>
+{% for assignment in assignments %}
+<div>
+    {% if assignment.assignment_level == '9' and assignment.assignment_progress_level == '1' %}
+    <h3>Scenario : </h3>
+    <p>Imagine you are building a dictionary to represent a student's grades in their classes. Each key represents the class name ("Math", "English", "History") and the corresponding value represents the student's grade in that class ("A", "B+", "C-"). How would you define this dictionary in Python?(Science - A-) How would you add a new class and grade to the dictionary? How would you update the grade for an existing class?(English - A)</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '9' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>You are working on a Python program that needs to store data about a company's employees. Each employee has a name, age, and salary. How would you use a dictionary to store this information for each employee? How would you add a new employee to the dictionary? How would you remove an employee from the dictionary?(Remove Kumars' details) Sample employees are below. You can use array to store all employees data. (Arrays ae explained in the further chapter.)</p>
+    <p>Name: John, Age: 30, Salary: 50,000.00</p>
+    <p>Name: Kumar, Age: 28, Salary: 70,000.00</p>
+    <p>Name: Methma, Age: 31, Salary: 100,000.00</p>
+    <br>
+    <p>Display current and Updated employees respectively.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '9' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>You are building a Python program to keep track of a restaurant's menu items. Each menu item has a name, description, and price. How would you use a dictionary to store this information for each menu item? How would you add a new menu item to the dictionary? How would you remove a menu item from the dictionary? How would you print out the entire menu in a user-friendly way?</p>
+    <p>name: Sandwich, description: Description of item 1, price: 50.00</p>
+    <p>name: Juice, description: Description of item 2, price: 200.00</p>
+    <p>name: Fried Rice, description: Description of item 3, price: 950.00</p>
+    <br>
+    <p>add new item </p>
+    <p>name: Burger, description: Description of item 4, price: 500.00</p>
+    <br>
+    <p>delete the item name as "Juice"</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+</div>
+{% endfor %}
+{% endif %}
+{% if chapter == 9 %}
 <div id="div2" class="container my-5">
     <div class="card shadow p-5 text-center bg-warning text-dark">
         <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>
@@ -84,6 +128,7 @@
     </form>
     <div id="response"></div>
 </div>
+{% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 <script>
     console.log("Ace editor script executing...");

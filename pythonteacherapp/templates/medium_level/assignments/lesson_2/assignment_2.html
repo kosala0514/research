@@ -1,5 +1,36 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% if chapter != 2 %}
+<h1 class="mt-5">Assignment List</h1>
+{% for assignment in assignments %}
+<div>
+    {% if assignment.assignment_level == '2' and assignment.assignment_progress_level == '1' %}
+    <h3>Scenario : </h3>
+    <p>Write a program that prompts the user to enter a string and then prints the string in all uppercase letters.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '2' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>Write a program that asks the user for their age and then calculates and prints the user's age in months. Assume that there are 12 months in a year.</p>
+        <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '2' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>Write a program that prompts the user to enter a sentence and then prints the number of words in that sentence.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+</div>
+{% endfor %}
+{% endif %}
+{% if chapter == 2 %}
 <div id="div2" class="container my-5">
     <div class="card shadow p-5 text-center bg-warning text-dark">
         <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>
@@ -10,6 +41,7 @@
         <p><b>There is extra 10 min to prepare yourself for the take assignment. Take your time and feel free. Believe
                 in yourself. Best of luck</b></p>
         <div class="">
+            <span id="message"></span>
             <span id="countdown"></span>
         </div>
     </div>
@@ -79,6 +111,17 @@
         <div class="output"></div>
     </div>
     {% endif %}
+    
+    <!-- {% if assignments %} -->
+    <h1>Assignment List</h1>
+    {% for assignment in assignments %}
+        <div>
+            <h2>Assignment ID: {{ assignment.id }}</h2>
+            <p>Message: {{ assignment.message }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+    <!-- {% endif %} -->
     <div class="card bg-danger p-2 text-light text-center shadow my-3">
         <p><b>You can test your work with above editor. If you are not comfortable you can use your own editor(VSCode).
                 You must save your file as python file (with .py extension). You must submit your answer within the time
@@ -93,6 +136,7 @@
     </form>
     <div id="response"></div>
 </div>
+{% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 <script>
     console.log("Ace editor script executing...");
@@ -223,12 +267,11 @@
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-                // if (data.success) {
-                //   responseDiv.innerText = 'File uploaded successfully';
-                // } else {
-                //   responseDiv.innerText = `Error: ${data.message}`;
-                // }
+                console.log(data.message);
+                clearInterval(countdown);
+                document.getElementById("message").innerHTML = data.message;
+                document.getElementById("div1").style.display = "none";
+                document.getElementById("div2").style.display = "block";
             })
             .catch(error => {
                 responseDiv.innerText = `Error: ${error}`;

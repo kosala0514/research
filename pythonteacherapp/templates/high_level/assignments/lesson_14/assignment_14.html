@@ -1,5 +1,36 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% if chapter != 14 %}
+<h1 class="mt-5">Assignment List</h1>
+{% for assignment in assignments %}
+<div>
+    {% if assignment.assignment_level == '14' and assignment.assignment_progress_level == '1' %}
+    <h3>Scenario : </h3>
+    <p>You are working on a project where you need to create an array of 10 integers and initialize it with random values between 1 and 100. Write Python code to create the array and populate it with random integers.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '14' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>You are working on a project where you need to find the sum of all the even numbers in an array of integers. Write Python code to create an array of 20 integers and find the sum of all the even numbers in the array.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '14' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>You are working on a project where you need to find the smallest and largest numbers in an array of integers. Write Python code to create an array of 15 integers and find the smallest and largest numbers in the array.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+</div>
+{% endfor %}
+{% endif %}
+{% if chapter == 14 %}
 <div id="div2" class="container my-5">
     <div class="card shadow p-5 text-center bg-warning text-dark">
         <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>
@@ -86,6 +117,7 @@
     </form>
     <div id="response"></div>
 </div>
+{% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 <script>
     console.log("Ace editor script executing...");

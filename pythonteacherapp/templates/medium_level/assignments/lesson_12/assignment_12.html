@@ -1,5 +1,36 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% if chapter != 12 %}
+<h1 class="mt-5">Assignment List</h1>
+{% for assignment in assignments %}
+<div>
+    {% if assignment.assignment_level == '12' and assignment.assignment_progress_level == '1' %}
+    <h3>Scenario : </h3>
+    <p>You are working on a Python program that needs to calculate the area of a circle. Write a function called calculate_area() that takes in the radius of the circle as an argument and returns its area. Provide an example of how to call the function with a radius of 5. You can use math.pi for calculation.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '12' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>You are building a program that needs to generate a random number between two given values. Write a function called generate_random_number() that takes in the minimum and maximum values as arguments and returns a random number between them. Provide an example of how to call the function with minimum value of 1 and maximum value of 10.You can use random.randint()</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '12' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>You have a list of numbers and you want to find the maximum value in the list. Write a function called find_max() that takes in a list of numbers as an argument and returns the maximum value. Provide an example of how to call the function with a list of [2, 7, 5, 9, 1].</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+</div>
+{% endfor %}
+{% endif %}
+{% if chapter == 12 %}
 <div id="div2" class="container my-5">
     <div class="card shadow p-5 text-center bg-warning text-dark">
         <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>
@@ -77,6 +108,7 @@
     </form>
     <div id="response"></div>
 </div>
+{% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 <script>
     console.log("Ace editor script executing...");

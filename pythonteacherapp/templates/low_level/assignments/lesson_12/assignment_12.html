@@ -4,24 +4,29 @@
 <h1 class="mt-5">Assignment List</h1>
 {% for assignment in assignments %}
 <div>
-    {% if assignment.assignment_level == '12' && assignment.assignment_progress_level == '1' %}
+    {% if assignment.assignment_level == '12' and assignment.assignment_progress_level == '1' %}
     <h3>Scenario : </h3>
-    <p>Get your friend first name and last name and display full name as output.</p>
-    {% endif %}
-
-    {% if assignment.assignment_level == '12' && assignment.assignment_progress_level == '2' %}
-    <h3>Scenario : </h3>
-    <p>Write a program that prompts the user to enter their name and age, and then prints a message that says "Hello,
-        [name], you are [age] years old!".</p>
-    {% endif %}
-
-    {% if assignment.assignment_level == '12' && assignment.assignment_progress_level == '3' %}
-    <h3>Scenario : </h3>
-    <p>Write a program that prompts the user to enter a string and then prints the string backwards.</p>
-    {% endif %}
+    <p>You are working on a Python program that needs to calculate the area of a circle. Write a function called calculate_area() that takes in the radius of the circle as an argument and returns its area. Provide an example of how to call the function with a radius of 5. You can use math.pi for calculation.</p>
     <h2>Marks: {{ assignment.marks }}</h2>
     <h2>Status / Message: {{ assignment.message }}</h2>
     <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '12' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>You are building a program that needs to generate a random number between two given values. Write a function called generate_random_number() that takes in the minimum and maximum values as arguments and returns a random number between them. Provide an example of how to call the function with minimum value of 1 and maximum value of 10.You can use random.randint()</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '12' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>You have a list of numbers and you want to find the maximum value in the list. Write a function called find_max() that takes in a list of numbers as an argument and returns the maximum value. Provide an example of how to call the function with a list of [2, 7, 5, 9, 1].</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
 </div>
 {% endfor %}
 {% endif %}

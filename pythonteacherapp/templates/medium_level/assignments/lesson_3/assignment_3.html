@@ -1,5 +1,36 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% if chapter != 3 %}
+<h1 class="mt-5">Assignment List</h1>
+{% for assignment in assignments %}
+<div>
+    {% if assignment.assignment_level == '3' and assignment.assignment_progress_level == '1' %}
+    <h3>Scenario : </h3>
+    <p>Write a program that prompts the user to enter a string and then prints the string in all uppercase letters.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '3' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>Write a Python program that calculates the area of a circle. Prompt the user to enter the radius of the circle, and store this value in a variable. Then, use this variable to calculate the area of the circle using the formula: area = pi * radius**2. Assume that pi is equal to 3.14159. Finally, print out a message that says "The area of the circle is [area]."</p>
+        <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '3' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>Write a Python program that calculates the average of three numbers. Prompt the user to enter three numbers, and store these values in separate variables. Then, use these variables to calculate the average of the three numbers using the formula: average = (num1 + num2 + num3) / 3. Finally, print out a message that says "The average of the three numbers is [average]."</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+</div>
+{% endfor %}
+{% endif %}
+{% if chapter == 3 %}
 <div id="div2" class="container my-5">
     <div class="card shadow p-5 text-center bg-warning text-dark">
         <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>
@@ -88,6 +119,7 @@
     </form>
     <div id="response"></div>
 </div>
+{% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 <script>
     console.log("Ace editor script executing...");

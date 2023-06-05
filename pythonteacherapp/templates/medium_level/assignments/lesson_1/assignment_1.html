@@ -1,5 +1,38 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+{% if chapter != 1 %}
+<h1 class="mt-5">Assignment List</h1>
+{% for assignment in assignments %}
+<div>
+    {% if assignment.assignment_level == '1' and assignment.assignment_progress_level == '1' %}
+    <h3>Scenario : </h3>
+    <p>Get your friend first name and last name and display full name as output.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '1' and assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>Write a program that prompts the user to enter their name and age, and then prints a message that says "Hello,
+        [name], you are [age] years old!".</p>
+        <h2>Marks: {{ assignment.marks }}</h2>
+        <h2>Status / Message: {{ assignment.message }}</h2>
+        <hr>
+    {% endif %}
+
+    {% if assignment.assignment_level == '1' and assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>Write a program that prompts the user to enter a string and then prints the string backwards.</p>
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+    {% endif %}
+</div>
+{% endfor %}
+{% endif %}
+{% if chapter == 1 %}
 <div id="div2" class="container my-5">
     <div class="card shadow p-5 text-center bg-warning text-dark">
         <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>
@@ -13,6 +46,7 @@
             <span id="countdown"></span>
         </div>
     </div>
+
     {% if level == 1 %}
     <h3>Scenario : </h3>
     <p>Get your friend first name and last name and display full name as output.</p>
@@ -40,7 +74,7 @@
     <h3>Scenario : </h3>
     <p>Write a program that prompts the user to enter their name and age, and then prints a message that says "Hello,
         [name], you are [age] years old!".</p>
-        <p class="text-danger">The output must be like this. (word must same as here)</p>
+    <p class="text-danger">The output must be like this. (word must same as here)</p>
     <div>
         <div class="editor mt-2" id="editor"></div>
 
@@ -76,7 +110,7 @@
         <p><b>You can test your work with above editor. If you are not comfortable you can use your own editor(VSCode).
                 You must save your file as python file (with .py extension). You must submit your answer within the time
                 period. If not it take as attempt and fail the attempted assignment.</b></p>
-       
+
     </div>
     <h1>Upload a File</h1>
     <form id="myForm">
@@ -86,6 +120,8 @@
     </form>
     <div id="response"></div>
 </div>
+
+{% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 <script>
     console.log("Ace editor script executing...");
@@ -214,18 +250,32 @@
             method: 'POST',
             body: formData,
         })
-            .then(response => {
-                
-                console.log(response)
-            })
+            .then(response => response.json())
             .then(data => {
-                console.log(data)
-                responseDiv.innerText = data;
-                // if (data.success) {
-                //   responseDiv.innerText = 'File uploaded successfully';
-                // } else {
-                //   responseDiv.innerText = `Error: ${data.message}`;
-                // }
+                // console.log(data.message);
+                clearInterval(countdown);
+                document.getElementById("countdown").innerHTML = data.message;
+                document.getElementById("div1").style.display = "none";
+                document.getElementById("div2").style.display = "block";
+
+                // Show/hide the alert box based on the task
+                if (data.task === 'error') {
+                    console.log('data');
+                    alertBox.classList.add('alert-danger');
+                    alertBox.style.display = 'block';
+                } else if (data.task === 'again') {
+                    // Do something if the task is 'again'
+                    alertBox.style.display = 'none';
+                } else if (data.task === 'next_level') {
+                    // Do something if the task is 'next_level'
+                    alertBox.style.display = 'none';
+                } else if (data.task === 'next_chapter') {
+                    // Do something if the task is 'next_chapter'
+                    alertBox.style.display = 'none';
+                } else {
+                    alertBox.classList.add('alert-info');
+                    alertBox.style.display = 'block';
+                }
             })
             .catch(error => {
                 responseDiv.innerText = `Error: ${error}`;
