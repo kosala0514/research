@@ -1,5 +1,32 @@
 {% load static %}
-<div class="my-5 mx-5">
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+    <a class="navbar-brand mx-5" href="#">
+        <p class="logo__header">PYTHON</p>
+        <p class="logo__sub__title">Teacher</p>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse container-fluid" id="navbarNav">
+        <ul class="navbar-nav justify-content-center">
+            <!-- Add the new navbar item here -->
+            <li class="nav-item">
+                <a class="nav-link" href="#intro">Introduction</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercise">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#test">Testing</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+<div class="my-5 mx-5" id="intro">
     <h1 class="text-center">Rules for Naming</h1>
     <p>In Python, the rules of naming refer to the guidelines and conventions for naming variables, functions, modules, and other elements in your code. These rules help maintain code readability and consistency, making it easier for you and others to understand and work with the code.</p>
     <ul>
@@ -13,42 +40,50 @@
     <br/>
 
     <h1 class="text-center mt-3">Multi Words Variable Names</h1>
+    <hr/>
     <P>Using multiple words in a variable name can make it more descriptive and easier to understand. It can improve the readability of your code, especially when working on larger projects or collaborating with others. By including multiple words in a variable name, you can create more meaningful and self-explanatory identifiers.</P>
-    <h5 class="mt-3">Camel Case</h5>
+    <h5 class="text-center mt-3">Camel Case</h5>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_03/7.png' %}" class="img-fluid" alt="Responsive image">
-    <h5 class="mt-3">Pascal Case</h5>
+    <h5 class=" text-center mt-3">Pascal Case</h5>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_03/12.png' %}" class="img-fluid" alt="Responsive image">
-    <h5 class="mt-3">Snake Case</h5>
+    <h5 class=" text-center mt-3">Snake Case</h5>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_03/13.png' %}" class="img-fluid" alt="Responsive image">
 
+
     <h1 class="text-center mt-3">Assign Multiple Values</h1>
+    <hr/>
     <p>In Python, you can assign multiple values to a variable using a process called "multiple assignment" or "unpacking." This allows you to assign multiple values from a sequence, such as a list or tuple, to multiple variables in a single line of code.</p>
 
-    <h5 class="mt-3">Many Values to Multiple Variables</h5>
+    <h5 class="text-center mt-3">Many Values to Multiple Variables</h5>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_03/14.png' %}" class="img-fluid" alt="Responsive image">
-    <h5 class="mt-3">One Value to Multiple Variables</h5>
+    <h5 class="text-center mt-3">One Value to Multiple Variables</h5>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_03/15.png' %}" class="img-fluid" alt="Responsive image">
-    <h5 class="mt-3">Unpack a Collection</h5>
+    <h5 class="text-center mt-3">Unpack a Collection</h5>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_03/16.png' %}" class="img-fluid" alt="Responsive image">
     <br />
 
     <h1 class="text-center mt-3">Output Variables </h1>
+    <hr/>
     <p>To output the value of a variable in Python, you can use the print() function. The print() function is used to display text or variables as output in the console.</p>
     <h5>Example:-</h5>
     <img src="{% static 'img/lesson_03/17.png' %}" class="img-fluid" alt="Responsive image">
     <br />
 
     <h1 class="text-center mt-3">Global Variables</h1>
+    <hr/>
     <p>In Python, a global variable is a variable that is defined outside of any function or class and can be accessed from anywhere within the program, including inside functions and classes. It is visible and modifiable by all parts of the code.</p>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_03/18.png' %}" class="img-fluid" alt="Responsive image">
     <br/>
+    <div class="mt-5 mb-5" id="exercise">
+        <hr/>
+    </div>
     <div class="row mt-4 text-center">
         <h1>Exercise</h1>
         <p>Here is some examples that you can check out and improve your knowledge. (replit)</p>
@@ -82,6 +117,9 @@
     </div>
     <br/>
 
+    <div class="mt-5 mb-5" id="test">
+        <hr/>
+    </div>
     <h1 class="mt-4 text-center">
         Test
     </h1>

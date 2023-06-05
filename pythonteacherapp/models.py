@@ -26,3 +26,12 @@ class PreTest(models.Model):
     class Meta:
         db_table = 'pre_test'
 
+class Assignment(models.Model):
+    message = models.CharField(max_length=200)
+    assignment_progress_level = models.CharField(max_length=200)
+    assignment_level = models.CharField(max_length=200)
+    answer = models.TextField()
+    time = models.TextField()
+    marks = models.DecimalField(max_digits=5, decimal_places=2)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)

@@ -1,6 +1,33 @@
 {% load static %}
-<div class="my-5 mx-5">
-    <h1>Tuple</h1>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+    <a class="navbar-brand mx-5" href="#">
+        <p class="logo__header">PYTHON</p>
+        <p class="logo__sub__title">Teacher</p>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse container-fluid" id="navbarNav">
+        <ul class="navbar-nav justify-content-center">
+            <!-- Add the new navbar item here -->
+            <li class="nav-item">
+                <a class="nav-link" href="#intro">Introduction</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercise">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#test">Testing</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+<div class="my-5 mx-5" id="intro">
+    <h1 class="text-center">Tuple</h1>
     <p>One of the 4 built-in data type that can use to store multiple items in a single variable.</p>
     <p>This is ordered, unchangeable  and allow duplicate</p>
     <p>Example:-</p>
@@ -11,7 +38,8 @@
     <img src="{% static 'img/lesson_07/3.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <br />
     
-    <h3>Access tuple item</h3>
+    <h3 class="text-center mt-3">Access tuple item</h3>
+    <hr/>
     <p>We can access item in the tuple by referring index</p>
     <img src="{% static 'img/lesson_07/4.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <p>We can access item from the end of the tuple by referring negative index.</p>
@@ -21,28 +49,37 @@
     <p>We can check whether the item is exist or not in th tuple</p>
     <img src="{% static 'img/lesson_07/7.png' %}" class="img-fluid mt-3" alt="Responsive image">
     
-    <h3>Change tuple items</h3>
+    <h3 class="text-center mt-3">Change tuple items</h3>
+    <hr/>
     <p>We can change the item of tuple converting to list</p>
     <img src="{% static 'img/lesson_07/8.png' %}" class="img-fluid mt-3" alt="Responsive image">
     
-    <h3>Unpack tuple</h3>
+    <h3 class="text-center mt-3">Unpack tuple</h3>
+    <hr />
     <p>we are also allowed to extract the values back into variables. This is called "unpacking"</p>
     <img src="{% static 'img/lesson_07/9.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <p>If the number of variables is less than the number of values, you can add an * to the variable name and the values will be assigned to the variable as a list</p>
     <img src="{% static 'img/lesson_07/10.png' %}" class="img-fluid mt-3" alt="Responsive image">
     
-    <h3>loop through a list</h3>
+    <h3 class="text-center mt-3">loop through a list</h3>
+    <hr/>
     <p>We can use for loop</p>
     <img src="{% static 'img/lesson_07/11.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <p>Also we can use while loop</p>
     <img src="{% static 'img/lesson_07/12.png' %}" class="img-fluid mt-3" alt="Responsive image">
 
-    <h3>Join lists</h3>
+    <h3 class="text-center mt-3">Join lists</h3>
+    <hr/>
     <p>Using + operator</p>
     <img src="{% static 'img/lesson_07/13.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <p>multiple tuple</p>
     <img src="{% static 'img/lesson_07/14.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <br/>
+
+    
+    <div class="mt-5 mb-5" id="exercise">
+        <hr/>
+    </div>
     <div class="row mt-4 text-center">
         <h1>Exercise</h1>
         <p>Here is some examples that you can check out and improve your knowledge. (replit)</p>
@@ -76,6 +113,9 @@
     </div>
     <br/>
 
+    <div class="mt-5 mb-5" id="test">
+        <hr/>
+    </div>
     <h1 class="mt-4 text-center">
         Test
     </h1>

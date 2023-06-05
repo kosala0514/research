@@ -15,14 +15,44 @@
     font-family: sans-serif;
 }
 
-#editor { height: 400px; }
+#editor {
+    height: 400px;
+}
 
 
 .output {
-        padding: 4px;
-        border: 2px solid gray;
-        min-height: 100px;
-        width: 99%;
-        resize: none;
+    padding: 4px;
+    border: 2px solid gray;
+    min-height: 100px;
+    width: 99%;
+    resize: none;
 
+}
+
+.logo__header {
+    bottom: 0 !important;
+    margin: 0 10px;
+    color: rgb(7, 17, 78);
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+}
+
+.logo__sub__title {
+    top: 0;
+    margin: 0 15px;
+    color: rgb(152, 153, 158);
+    font-weight: bolder;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 8px;
+    /* Added letter-spacing for character spacing */
+}
+
+.nav-link {
+    color: #0f1d96 !important;
+}
+
+.nav-link:hover {
+    padding: 0.5rem 1rem;
 }

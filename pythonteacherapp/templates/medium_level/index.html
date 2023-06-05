@@ -38,11 +38,11 @@
                             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fa-solid fa-person-chalkboard"></i> <span class="ms-1 d-none d-sm-inline">Chapter</span> </a>
                             <ul class="collapse nav flex-column ms-1 text-light ml-4" id="submenu1" data-bs-parent="#menu">
-                                {% if user.chapter_level >= 1 %}
+                                <!-- {% if user.chapter_level >= 1 %} -->
                                 <li class="w-100 ml-4">
                                     <a href="{% url 'chapter' %}?lesson=1" class="nav-link px-0"> <span class="d-none d-sm-inline">Introduction</span></a>
                                 </li>
-                                {% endif %}
+                                <!-- {% endif %} -->
                                 {% if user.chapter_level >= 2 %}
                                 <li>
                                     <a href="{% url 'chapter' %}?lesson=2" class="nav-link px-0"> <span class="d-none d-sm-inline">Get Started</span> </a>
@@ -114,11 +114,11 @@
                             <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
                                 <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Assignment</span></a>
                             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">                                
-                                {% if user.assignment_level == 1 %}
+                                <!-- {% if user.assignment_level >= 1 %} -->
                                 <li class="w-100">
                                     <a href="{% url 'assignment' %}?lesson=1" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 01</span></a>
                                 </li>
-                                {% endif %}                             
+                                <!-- {% endif %}                              -->
                                 {% if user.assignment_level >= 2 %}
                                 <li class="w-100">
                                     <a href="{% url 'assignment' %}?lesson=2" class="nav-link px-0"> <span class="d-none d-sm-inline">Lesson 02</span></a>

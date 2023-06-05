@@ -1,5 +1,32 @@
 {% load static %}
-<div class="my-5 mx-5">
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+    <a class="navbar-brand mx-5" href="#">
+        <p class="logo__header">PYTHON</p>
+        <p class="logo__sub__title">Teacher</p>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse container-fluid" id="navbarNav">
+        <ul class="navbar-nav justify-content-center">
+            <!-- Add the new navbar item here -->
+            <li class="nav-item">
+                <a class="nav-link" href="#intro">Introduction</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercise">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#test">Testing</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+<div class="my-5 mx-5" id="intro">
     <h1 class="text-center mt-3">Data Types</h1>
     <p>Python supports several data types, each with its own characteristics and uses.</p>
     <ul>
@@ -31,6 +58,7 @@
     <br />
 
     <h1 class="text-center mt-3">Numbers</h1>
+    <hr/>
     <ul>
         <li>Int</li>
         <li>Float</li>
@@ -39,28 +67,29 @@
     <img src="{% static 'img/lesson_04/1.png' %}" class="img-fluid" alt="Responsive image">
     <br/>
 
-    <h3 class="mt-3">Conversion</h3>
+    <h3 class="text-center mt-3">Conversion</h3>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_04/2.png' %}" class="img-fluid" alt="Responsive image">
     
-    <h3 class="mt-3">Random Numbers</h3>
+    <h3 class="text-center mt-3">Random Numbers</h3>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_04/3.png' %}" class="img-fluid" alt="Responsive image">
 
-    <h1>String</h1>
-    <h3 class="mt-3">Single or Double</h3>
+    <h1 class="text-center mt-3">String</h1>
+    <hr/>
+    <h3 class="text-center mt-3">Single or Double</h3>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_04/4.png' %}" class="img-fluid" alt="Responsive image">
-    <h3 class="mt-3">Multiline string</h3>
+    <h3 class="text-center mt-3">Multiline string</h3>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_04/5.png' %}" class="img-fluid" alt="Responsive image">
-    <h3 class="mt-3">Slicing</h3>
+    <h3 class="text-center mt-3">Slicing</h3>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_04/6.png' %}" class="img-fluid" alt="Responsive image">
-    <h3 class="mt-3">Modify</h3>
+    <h3 class="text-center mt-3">Modify</h3>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_04/7.png' %}" class="img-fluid" alt="Responsive image">
-    <h3 class="mt-3">Concatenate</h3>
+    <h3 class="text-center mt-3">Concatenate</h3>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_04/8.png' %}" class="img-fluid" alt="Responsive image">
     <br/>
@@ -68,12 +97,16 @@
     example in each type -->
 
     <h1 class="text-center mt-3">Boolean</h1>
+    <hr/>
     <p>In programming you often need to know if an expression is True or False.</p>
     <h3>Evaluate Values and Variables</h3>
     <p>Example </p>
     <img src="{% static 'img/lesson_04/10.png' %}" class="img-fluid" alt="Responsive image">
-    
     <br/>
+    
+    <div class="mt-5 mb-5" id="exercise">
+        <hr/>
+    </div>
     <div class="row mt-4 text-center">
         <h1>Exercise</h1>
         <p>Here is some examples that you can check out and improve your knowledge. (replit)</p>
@@ -107,6 +140,10 @@
     </div>
     <br/>
 
+    
+    <div class="mt-5 mb-5" id="test">
+        <hr/>
+    </div>
     <h1 class="mt-4 text-center">
         Test
     </h1>

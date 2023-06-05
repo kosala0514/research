@@ -1,9 +1,37 @@
 {% load static %}
-<div class="my-5 mx-5">
-    <h1>If...Else</h1>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+    <a class="navbar-brand mx-5" href="#">
+        <p class="logo__header">PYTHON</p>
+        <p class="logo__sub__title">Teacher</p>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse container-fluid" id="navbarNav">
+        <ul class="navbar-nav justify-content-center">
+            <!-- Add the new navbar item here -->
+            <li class="nav-item">
+                <a class="nav-link" href="#intro">Introduction</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercise">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#test">Testing</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+<div class="my-5 mx-5" id="intro">
+    <h1 class="text-center">If...Else</h1>
     <p>We can use the if-else statement to perform conditional execution of code. It allows you to specify different blocks of code to be executed based on a particular condition.</p>
     
-    <h3>logical conditions</h3>
+    <h3 class="text-center mt-3">logical conditions</h3>
+    <hr/>
     <p>Equals: a == b</p>
     <p>Not Equals: a != b</p>
     <p>Less than: a < b</p>
@@ -11,55 +39,68 @@
     <p>Greater than: a > b</p>
     <p>Greater than or equal to: a >= b</p>
     
-    <h3>if</h3>
+    <h3 class="text-center mt-3">if</h3>
+    <hr/>
     <p>Indentation is very important</p>
 
     <h5>Scenario : </h5>
     <p>Let's assume this. Today is the session test day. The teacher gives you papers and you answered. After correcting the answer, the teacher enters marks into the system. The teacher wants to know whether you pass or fail the test. (If the mark is greater than or equal to 65, you will pass the test.)</p>
     <img src="{% static 'img/lesson_10/1.png' %}" class="img-fluid mt-3" alt="Responsive image">
 
-    <h3>elif</h3>
+    <h3 class="text-center mt-3">elif</h3>
+    <hr/>
     <p>if the previous conditions were not true, then try this condition</p>
 
     <h5>Scenario : </h5>
     <p>A teacher wants to categorize his students according to their marks.</p>
     <img src="{% static 'img/lesson_10/3.png' %}" class="img-fluid mt-3" alt="Responsive image">
     
-    <h3>else</h3>
+    <h3 class="text-center mt-3">else</h3>
+    <hr/>
     <p>Catches anything which isn't caught by the preceding conditions</p>
     
     <h5>Scenario : </h5>
     <p>A student wants to compare two numbers and wants to know what is the greater value.</p>
     <img src="{% static 'img/lesson_10/2.png' %}" class="img-fluid mt-3" alt="Responsive image">
     
-    <h3>Short Hand If</h3>
-    
+    <h3 class="text-center mt-3">Short Hand If</h3>
+    <hr/>
     <img src="{% static 'img/lesson_10/4.png' %}" class="img-fluid mt-3" alt="Responsive image">
 
-    <h3>Short Hand If ... Else</h3>
+    <h3 class="text-center mt-3">Short Hand If ... Else</h3>
+    <hr/>
     
     <img src="{% static 'img/lesson_10/5.png' %}" class="img-fluid mt-3" alt="Responsive image">
 
-    <h3>And</h3>
+    <h3 class="text-center mt-3">And</h3>
+    <hr/>
     <p>The and keyword is a logical operator, and is used to combine conditional statements.</p>
     <img src="{% static 'img/lesson_10/6.png' %}" class="img-fluid mt-3" alt="Responsive image">
 
-    <h3>Or</h3>
+    <h3 class="text-center mt-3">Or</h3>
+    <hr/>
     <p>Test if a is greater than b, OR if a is greater than c.</p>
     <img src="{% static 'img/lesson_10/7.png' %}" class="img-fluid mt-3" alt="Responsive image">
 
-    <h3>Not</h3>
+    <h3 class="text-center mt-3">Not</h3>
+    <hr/>
     <p>The not keyword is a logical operator, and is used to reverse the result of the conditional statement.</p>
     <img src="{% static 'img/lesson_10/8.png' %}" class="img-fluid mt-3" alt="Responsive image">
 
-    <h3>Nested if</h3>
+    <h3 class="text-center mt-3">Nested if</h3>
+    <hr/>
     <p>we  can have if statements inside if statements, this is called nested if statements.</p>
     <img src="{% static 'img/lesson_10/9.png' %}" class="img-fluid mt-3" alt="Responsive image">
 
-    <h3>Pass</h3>
+    <h3 class="text-center mt-3">Pass</h3>
+    <hr/>
     <p>if statements cannot be empty, but if you for some reason have an if statement with no content, put in the pass statement to avoid getting an error.</p>
     <img src="{% static 'img/lesson_10/10.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <br/>
+
+    <div class="mt-5 mb-5" id="exercise">
+        <hr/>
+    </div>
     <div class="row mt-4 text-center">
         <h1>Exercise</h1>
         <p>Here is some examples that you can check out and improve your knowledge. (replit)</p>
@@ -93,6 +134,9 @@
     </div>
     <br/>
 
+    <div class="mt-5 mb-5" id="test">
+        <hr/>
+    </div>
     <h1 class="mt-4 text-center">
         Test
     </h1>

@@ -1,5 +1,31 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% if chapter != 13 %}
+<h1 class="mt-5">Assignment List</h1>
+{% for assignment in assignments %}
+<div>
+    {% if assignment.assignment_level == '13' && assignment.assignment_progress_level == '1' %}
+    <h3>Scenario : </h3>
+    <p>Get your friend first name and last name and display full name as output.</p>
+    {% endif %}
+
+    {% if assignment.assignment_level == '13' && assignment.assignment_progress_level == '2' %}
+    <h3>Scenario : </h3>
+    <p>Write a program that prompts the user to enter their name and age, and then prints a message that says "Hello,
+        [name], you are [age] years old!".</p>
+    {% endif %}
+
+    {% if assignment.assignment_level == '13' && assignment.assignment_progress_level == '3' %}
+    <h3>Scenario : </h3>
+    <p>Write a program that prompts the user to enter a string and then prints the string backwards.</p>
+    {% endif %}
+    <h2>Marks: {{ assignment.marks }}</h2>
+    <h2>Status / Message: {{ assignment.message }}</h2>
+    <hr>
+</div>
+{% endfor %}
+{% endif %}
+{% if chapter == 13 %}
 <div id="div2" class="container my-5">
     <div class="card shadow p-5 text-center bg-warning text-dark">
         <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>
@@ -71,6 +97,7 @@
     </form>
     <div id="response"></div>
 </div>
+{% endif %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 <script>
     console.log("Ace editor script executing...");

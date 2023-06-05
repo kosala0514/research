@@ -1,9 +1,36 @@
 {% load static %}
-<div class="my-5 mx-5">
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+    <a class="navbar-brand mx-5" href="#">
+        <p class="logo__header">PYTHON</p>
+        <p class="logo__sub__title">Teacher</p>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse container-fluid" id="navbarNav">
+        <ul class="navbar-nav justify-content-center">
+            <!-- Add the new navbar item here -->
+            <li class="nav-item">
+                <a class="nav-link" href="#intro">Introduction</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercise">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#test">Testing</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+<div class="my-5 mx-5" id="intro">
     <h1 class="text-center">Operators</h1>
 
     <br />
-    <h3 class="mt-3">Arithmetic Operator</h3>
+    <h3 class="text-center mt-3">Arithmetic Operator</h3>
     <p>Arithmetic operators are symbols used in mathematics and programming to perform various mathematical operations. </p>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_05/arithmetic_1.png' %}" class="img-fluid mt-3" alt="Responsive image">
@@ -22,7 +49,9 @@
     <br />
     <img src="{% static 'img/lesson_05/arithmetic_7.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <br />
-    <h3>Assignment Operator</h3>
+    
+    <h3 class="text-center mt-3">Assignment Operator</h3>
+    <hr/>
     <p>Assignment operators are used in programming languages to assign values to variables. They combine the assignment operation with another operation, such as arithmetic or bitwise operations, and provide a concise way to update the value of a variable.</p>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_05/assignment_1.png' %}" class="img-fluid mt-3" alt="Responsive image">
@@ -51,7 +80,9 @@
     <br />
     <img src="{% static 'img/lesson_05/assignment_13.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <br />
-    <h3>Comparison Operators</h3>
+
+    <h3 class="text-center mt-3">Comparison Operators</h3>
+    <hr/>
     <p>Comparison operators are used in programming to compare the values of two operands and determine the relationship between them. These operators evaluate the conditions and return a Boolean value (true or false) based on whether the comparison is true or false. </p>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_05/comparison_1.png' %}" class="img-fluid mt-3" alt="Responsive image">
@@ -66,7 +97,9 @@
     <br />
     <img src="{% static 'img/lesson_05/comparison_6.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <br />
-    <h3>Logical Operators</h3>
+
+    <h3 class="text-center mt-3">Logical Operators</h3>
+    <hr/>
     <p>Logical operators are symbols or words used in programming and logic to combine or manipulate logical expressions. These operators allow you to perform logical operations on boolean values (true or false) and make decisions based on their outcomes. </p>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_05/logical_1.png' %}" class="img-fluid mt-3" alt="Responsive image">
@@ -75,21 +108,27 @@
     <br />
     <img src="{% static 'img/lesson_05/logical_3.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <br />
-    <h3>Identity Operators</h3>
+
+    <h3 class="text-center mt-3">Identity Operators</h3>
+    <hr/>
     <p>In programming, identity operators are used to compare the identity of two objects or values. They determine whether two objects or values refer to the same memory location. Identity operators are usually supported in languages that have reference types or objects.</p>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_05/is.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <br />
     <img src="{% static 'img/lesson_05/is_not.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <br />
-    <h3>Membership Operators</h3>
+
+    <h3 class="text-center mt-3">Membership Operators</h3>
+    <hr/>
     <p>Membership operators are operators in programming languages that are used to test the membership of a value in a sequence, such as a string, list, or tuple. They allow you to check whether a particular value exists within a sequence or not. Membership operators typically return a Boolean value (True or False) based on the result of the membership test.</p>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_05/in.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <br />
     <img src="{% static 'img/lesson_05/not_in.png' %}" class="img-fluid mt-3" alt="Responsive image">
     <br />
-    <h3>Bitwise Operators</h3>
+
+    <h3 class="text-center mt-3">Bitwise Operators</h3>
+    <hr/>
     <p>Bitwise operators are operators in computer programming that manipulate individual bits of binary numbers. They are primarily used in low-level programming, such as systems programming and embedded systems, where direct manipulation of bits is necessary.</p>
     <p>Example:-</p>
     <img src="{% static 'img/lesson_05/bitwise_1.png' %}" class="img-fluid mt-3" alt="Responsive image">
@@ -106,7 +145,7 @@
     <br />
 
     <h1 class="text-center mt-4">Operator Precedence</h1>
-
+    <hr/>
     <table class="ws-table-all notranslate mt-2">
         <tr>
             <th style="width:25%">Operator</th>
@@ -192,6 +231,11 @@
         </tr>
     </table>
     <br/>
+
+    
+    <div class="mt-5 mb-5" id="exercise">
+        <hr/>
+    </div>
     <div class="row mt-4 text-center">
         <h1>Exercise</h1>
         <p>Here is some examples that you can check out and improve your knowledge. (replit)</p>
@@ -225,6 +269,10 @@
     </div>
     <br/>
 
+    
+    <div class="mt-5 mb-5" id="test">
+        <hr/>
+    </div>
     <h1 class="mt-4 text-center">
         Test
     </h1>
