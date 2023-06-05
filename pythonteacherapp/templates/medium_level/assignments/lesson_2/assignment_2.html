@@ -33,7 +33,7 @@
 {% if chapter == 2 %}
 <div id="div2" class="container my-5">
     <div class="card shadow p-5 text-center bg-warning text-dark">
-        <p>Go to study this lesson and prepared well and come back. Wish you all the best. Never give up!</p>
+        <p>Wish you all the best. Never give up!</p>
     </div>
 </div>
 <div class="container my-5" id="div1">
@@ -112,16 +112,6 @@
     </div>
     {% endif %}
     
-    <!-- {% if assignments %} -->
-    <h1>Assignment List</h1>
-    {% for assignment in assignments %}
-        <div>
-            <h2>Assignment ID: {{ assignment.id }}</h2>
-            <p>Message: {{ assignment.message }}</p>
-            <hr>
-        </div>
-    {% endfor %}
-    <!-- {% endif %} -->
     <div class="card bg-danger p-2 text-light text-center shadow my-3">
         <p><b>You can test your work with above editor. If you are not comfortable you can use your own editor(VSCode).
                 You must save your file as python file (with .py extension). You must submit your answer within the time

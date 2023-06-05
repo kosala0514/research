@@ -1,4 +1,32 @@
 {% load static %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+    <a class="navbar-brand mx-5" href="#">
+        <p class="logo__header">PYTHON</p>
+        <p class="logo__sub__title">Teacher</p>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse container-fluid" id="navbarNav">
+        <ul class="navbar-nav justify-content-center">
+            <!-- Add the new navbar item here -->
+            <li class="nav-item">
+                <a class="nav-link" href="#intro">Introduction</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercise">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#test">Testing</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
 <div class="my-5 mx-5">
     <h1>Array</h1>
     <p>An array is a special variable, which can hold more than one value at a time.</p>
