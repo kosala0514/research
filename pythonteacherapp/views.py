@@ -18,8 +18,8 @@ from django.conf import settings
 import ast
 import tempfile
 from django.contrib.auth.hashers import check_password
-from django.contrib import messages
 import json
+from django.contrib.auth import logout
 # from django.contrib.auth import authenticate, login
 
 loging_user = {}
@@ -131,7 +131,7 @@ def delete(request, id):
     user.delete()
     return redirect('/')
 
-# Medium Level
+# All Level chapters
 def chapter(request):
     number = request.GET.get('lesson')
     number = int(number) if number else None
@@ -603,6 +603,14 @@ def get_assignments_by_user(user_id):
         # print(f"Content: {assignment.answer}")
         # print("------------------------------")
     return assignments
+
+def logout(request):
+    request.session['name'] = ''
+    request.session['email'] = ''
+    request.session['user_id'] = ''
+    global loging_user
+    loging_user = ''
+    return redirect('/')
 
 # def get_fuzzy_output(calculated_marks, calculated_time):
 #     # Define fuzzy sets for inputs and output

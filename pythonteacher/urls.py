@@ -31,10 +31,12 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('execute_code', views.execute_code, name='execute_code'),
 
-    # medium level
+    # All level
     path('chapter', views.chapter, name='chapter'),
     path('assignment', views.assignment, name='assignment'),
     path('upload_file', views.upload_file, name='upload_file'),
+
+    path('logout/', views.logout, name='logout'),
 
     # path('postsignIn/', views.postsignIn),
     # path('postsignUp/', views.postsignUp),
