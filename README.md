@@ -66,8 +66,6 @@ pip install -r requirements.txt
 
 # Perform migrations
 python manage.py migrate
-Usage
-Explain how to run or use your project. Include any important commands, configurations, or settings.
 
 # Run the development server
 python manage.py runserver
