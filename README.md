@@ -1,7 +1,7 @@
 PYTHON TEACHER 
 
 Overview
-Python Teacher is a task recommendation system designed to assist beginner students learning Python. The project aims to provide a structured and personalized learning path by recommending tasks and exercises tailored to the individual's skill level and progress. Leveraging the power of Python and educational resources, Python Teacher aims to make the learning experience engaging, interactive, and effective.
+Python Teacher is a task recommendation system designed to assist beginner students in learning Python. The project aims to provide a structured and personalized learning path by recommending tasks and exercises tailored to the individual's skill level and progress. Leveraging the power of Python and educational resources, Python Teacher aims to make the learning experience engaging, interactive, and effective.
 
 Prerequisites
 Before you begin, ensure you have met the following requirements:
@@ -41,8 +41,6 @@ Before you begin, ensure you have met the following requirements:
     # Verify your Git installation
 git --version
 ```
-
-
 
 5. **Dependencies**: Install project dependencies using the requirements file.
 
