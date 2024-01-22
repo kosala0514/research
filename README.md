@@ -39,8 +39,8 @@ Before you begin, ensure you have met the following requirements:
 
     ```bash
     # Verify your Git installation
-git --version
-```
+    git --version
+    ```
 
 5. **Dependencies**: Install project dependencies using the requirements file.
 
